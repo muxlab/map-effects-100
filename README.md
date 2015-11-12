@@ -25,7 +25,7 @@ Cool tips to design UI/UX on your Map.
 
 ## Contribution
 
-You can join the project with the GitHub flow (Fork & Pull Request) or propose your ideas at [Issues](issues).
+You can join the project with the GitHub flow (Fork & Pull Request) or propose your ideas at [Issues](https://github.com/muxlab/map-effects-100/issues).
 
 ## Licensing
 
