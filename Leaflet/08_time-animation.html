@@ -59,7 +59,7 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-    
+
     <script>
     $(function() {
 
@@ -97,7 +97,7 @@
               layer.setOpacity(0);
 
               (function(layer, properties) {
-                setInterval(function(){ 
+                setInterval(function(){
                   var tt = properties['time'];
                   // Filter by time
                   if(tt > t && tt <= (t+dt)) {
@@ -123,14 +123,6 @@
           map.fitBounds(geojson.getBounds());
           geojson.addTo(map);
         });
-      }
-
-      function getSize(n) {
-        return n > 7 ? 20 :
-               n > 6 ? 16 :
-               n > 5 ? 12 :
-               n > 4 ? 8 :
-               8;
       }
 
       initMap();
