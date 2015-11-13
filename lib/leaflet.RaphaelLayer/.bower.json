@@ -1,0 +1,14 @@
+{
+  "name": "leaflet.RaphaelLayer",
+  "homepage": "https://github.com/dynmeth/RaphaelLayer",
+  "_release": "c1200c77d2",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "c1200c77d2a497be28c186c81e749cfdd7309c19"
+  },
+  "_source": "git://github.com/dynmeth/RaphaelLayer.git",
+  "_target": "*",
+  "_originalSource": "leaflet.RaphaelLayer",
+  "_direct": true
+}

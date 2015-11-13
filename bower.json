@@ -1,0 +1,31 @@
+{
+  "name": "map-effects-100",
+  "authors": [
+    "ynunokawa <yusuke_nunokawa@esrij.com>"
+  ],
+  "description": "Cool tips to design UI/UX on your Leaflet maps.",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "Leaflet",
+    "UX",
+    "Data Visualization"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "~0.1.0",
+    "jquery": "~2.1.4",
+    "d3": "~3.5.8",
+    "leaflet": "~0.7.7",
+    "raphael": "~2.1.4",
+    "leaflet.RaphaelLayer": "*"
+  }
+}
