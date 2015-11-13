@@ -8,6 +8,12 @@ Cool tips to design UI/UX on your Map.
 
 * [Leaflet](http://leafletjs.com/)
 
+### Quick Start
+
+```
+bower install map-effects-100
+```
+
 ## Index
 
 1. [Fade-in Highlight Style](http://muxlab.github.io/map-effects-100/Leaflet/01_fadein-highlight.html)
