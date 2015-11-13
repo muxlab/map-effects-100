@@ -1,5 +1,7 @@
 # Map Effects 100
 
+[![Bower version](https://badge.fury.io/bo/map-effects-100.svg)](http://badge.fury.io/bo/badges)
+
 Cool tips to design UI/UX on your Map.
 
 ### Map?

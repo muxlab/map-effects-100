@@ -12,7 +12,7 @@
     "Data Visualization"
   ],
   "license": "MIT",
-  "homepage": "index.html",
+  "homepage": "https://github.com/muxlab/map-effects-100",
   "ignore": [
     "**/.*",
     "node_modules",
