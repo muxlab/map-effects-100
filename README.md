@@ -24,6 +24,8 @@ bower install map-effects-100
 * [Binding Chart to Map Operations](http://muxlab.github.io/map-effects-100/Leaflet/06_binding-chart.html)
 * [Raphael Animation](http://muxlab.github.io/map-effects-100/Leaflet/07_raphael-animation.html)
 * [Time Animation Play](http://muxlab.github.io/map-effects-100/Leaflet/08_time-animation.html)
+* [Hex Grid Test Play](http://valueceation.github.io/map-effects-100/Leaflet/0X_hex-grid-test.html)
+* 
 
 <!--* [Instagram Integration]()-->
 
