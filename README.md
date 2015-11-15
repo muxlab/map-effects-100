@@ -16,16 +16,15 @@ bower install map-effects-100
 
 ## Index
 
-1. [Fade-in Highlight Style](http://muxlab.github.io/map-effects-100/Leaflet/01_fadein-highlight.html)
-* [Classified Highlight Color](http://muxlab.github.io/map-effects-100/Leaflet/02_classified-highlightcolor.html)
-* [Rising Popup](http://muxlab.github.io/map-effects-100/Leaflet/03_rising-popup.html)
-* [Interlocking Legend](http://muxlab.github.io/map-effects-100/Leaflet/04_interlocking-legend.html)
-* [SVG Marker Animation](http://muxlab.github.io/map-effects-100/Leaflet/05_svg-marker-animation.html)
-* [Binding Chart to Map Operations](http://muxlab.github.io/map-effects-100/Leaflet/06_binding-chart.html)
-* [Raphael Animation](http://muxlab.github.io/map-effects-100/Leaflet/07_raphael-animation.html)
-* [Time Animation Play](http://muxlab.github.io/map-effects-100/Leaflet/08_time-animation.html)
-* [Hex Grid Test Play](http://valueceation.github.io/map-effects-100/Leaflet/0X_hex-grid-test.html)
-* 
+1. [Fade-in Highlight Style](http://valuecreation.github.io/map-effects-100/Leaflet/01_fadein-highlight.html)
+* [Classified Highlight Color](http://valuecreation.github.io/map-effects-100/Leaflet/02_classified-highlightcolor.html)
+* [Rising Popup](http://valuecreation.github.io/map-effects-100/Leaflet/03_rising-popup.html)
+* [Interlocking Legend](http://valuecreation.github.io/map-effects-100/Leaflet/04_interlocking-legend.html)
+* [SVG Marker Animation](http://valuecreation.github.io/map-effects-100/Leaflet/05_svg-marker-animation.html)
+* [Binding Chart to Map Operations](http://valuecreation.github.io/map-effects-100/Leaflet/06_binding-chart.html)
+* [Raphael Animation](http://valuecreation.github.io/map-effects-100/Leaflet/07_raphael-animation.html)
+* [Time Animation Play](http://valuecreation.github.io/map-effects-100/Leaflet/08_time-animation.html)
+* [Hex Grid Test Play](http://valuecreation.github.io//map-effects-100/Leaflet/0X_hex-grid-test.html)
 
 <!--* [Instagram Integration]()-->
 
