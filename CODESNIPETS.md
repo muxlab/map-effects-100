@@ -207,3 +207,27 @@ if(tt > t && tt <= (t+dt)) {
   }, 5000);
 }
 ```
+* [09_nearest-on-worker.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/09_nearest-on-worker.html)
+```javascript
+map.on('mousemove', function (e) {
+  var point = {
+    "type": "Feature",
+    "properties": {
+      "marker-color": "#0f0"
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [e.latlng.lng, e.latlng.lat]
+    }
+  };
+
+  // Turf.nearest!
+  var nearest = turf.nearest(point, data);
+  $('circle#' + nearest.properties['code']).attr('r', nearest.properties['mag']*2.5);
+  $('circle#' + nearest.properties['code']).css('fill', '#ff0000');
+  setTimeout(function() {
+    $('circle#' + nearest.properties['code']).attr('r', 1);
+    $('circle#' + nearest.properties['code']).css('fill', '#ff9c00');
+  }, 1000);
+});
+```
