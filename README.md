@@ -24,7 +24,7 @@ bower install map-effects-100
 * [Binding Chart to Map Operations](http://muxlab.github.io/map-effects-100/Leaflet/06_binding-chart.html)
 * [Raphael Animation](http://muxlab.github.io/map-effects-100/Leaflet/07_raphael-animation.html)
 * [Time Animation Play](http://muxlab.github.io/map-effects-100/Leaflet/08_time-animation.html)
-* [Search Nearest with Turf](http://muxlab.github.io/map-effects-100/Leaflet/09_nearest-on-worker.html)
+* [Search Nearest with Turf](http://muxlab.github.io/map-effects-100/Leaflet/09_nearest-with-turf.html)
 
 <!--* [Instagram Integration]()-->
 
