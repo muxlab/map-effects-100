@@ -2,7 +2,7 @@
 
 * Map is Leaflet.
 * 1 app, 1 html file.
-* Minimum codes (under 100 in JavaScript).
+* Minimum codes.
 * Application title and number into `<div id="title"><p>09. Search Nearest with Turf</p></div>`.
 * You should not use third-party libraries rashly.
 * Application file name is `[No.]_[Short title].html`
