@@ -63,7 +63,7 @@
               (function(layer, properties) {
                 var svgIcon = L.divIcon({
                   className: 'earthquakes',
-                  html: '<svg width="64px" height="64px" viewBox="-20 -20 64 64"><g><circle class="circles" id="' + properties['code'] + '" opacity="0.4" r="1" transform="translate(0,0)"></circle></g></svg>'
+                  html: '<svg class="eq-svg" width="64px" height="64px" viewBox="-20 -20 64 64"><g><circle class="circles" id="' + properties['code'] + '" opacity="0.4" r="1" transform="translate(0,0)"></circle></g></svg>'
                 });
                 layer.setIcon(svgIcon);
               })(layer, feature.properties);
