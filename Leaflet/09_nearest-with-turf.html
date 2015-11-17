@@ -26,6 +26,11 @@
           transition-property: r, fill;
           transition-duration: 1s;
         }
+        /* Marker offset */
+        .eq-svg {
+          margin-top: -12px;
+          margin-left: -12px;
+        }
     </style>
   </head>
 
@@ -38,7 +43,7 @@
 
     <!-- Turf.js -->
     <script src="//api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js"></script>
-    
+
     <script>
     $(function() {
 
@@ -78,7 +83,7 @@
                 "coordinates": [e.latlng.lng, e.latlng.lat]
               }
             };
-            
+
             // Turf.nearest!
             var nearest = turf.nearest(point, data);
             $('circle#' + nearest.properties['code']).attr('r', nearest.properties['mag']*2.5);
