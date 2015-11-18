@@ -31,12 +31,29 @@
         /* CSS3 Transition & Animation for sizing svg icon */
         .circles {
           fill: #ff9c00;
+          -webkit-transition-property: r;
+          -webkit-transition-duration: 4s;
           transition-property: r;
           transition-duration: 4s;
 
+          -webkit-animation-duration: 5s;
+          -webkit-animation-name: fade-out;
+          -webkit-animation-iteration-count: 1;
           animation-duration: 5s;
           animation-name: fade-out;
           animation-iteration-count: 1;
+        }
+
+        @-webkit-keyframes fade-out {
+          0% {
+            opacity: 0.4;
+          }
+          50% {
+            opacity: 0.4;
+          }
+          100% {
+            opacity: 0;
+          }
         }
 
         @keyframes fade-out {
