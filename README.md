@@ -25,6 +25,7 @@ bower install map-effects-100
 * [Raphael Animation](http://valuecreation.github.io/map-effects-100/Leaflet/07_raphael-animation.html)
 * [Time Animation Play](http://valuecreation.github.io/map-effects-100/Leaflet/08_time-animation.html)
 * [Hex Grid Test Play](http://valuecreation.github.io//map-effects-100/Leaflet/0X_hex-grid-test.html)
+* [Search Nearest with Turf](http://muxlab.github.io/map-effects-100/Leaflet/09_nearest-with-turf.html)
 
 <!--* [Instagram Integration]()-->
 
@@ -38,13 +39,14 @@ __Library__
 * [jQuery](https://jquery.com/)
 * [D3](http://d3js.org/)
 * [Chart.js](http://www.chartjs.org/)
+* [Turf](http://turfjs.org/)
 
 __Leaflet Plugin__
 * [Leaflet.RaphaelLayer](http://dynmeth.github.io/RaphaelLayer/)
 
 ## Contribution
 
-You can join the project with the GitHub flow (Fork & Pull Request) or propose your ideas at [Issues](https://github.com/muxlab/map-effects-100/issues).
+You can join the project with the GitHub flow (Fork & Pull Request) in accordance with [CONTRIBUTING](https://github.com/muxlab/map-effects-100/blob/gh-pages/CONTRIBUTING.md) or propose your ideas at [Issues](https://github.com/muxlab/map-effects-100/issues).
 
 ## Licensing
 
