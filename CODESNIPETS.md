@@ -231,3 +231,32 @@ map.on('mousemove', function (e) {
   }, 1000);
 });
 ```
+* [10_hex-grid-with-truf.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/10_hex-grid-with-truf.html)
+```javascript       
+  // Generates a hexgrid within the specified bbox.
+  var b = geojson.getBounds();
+  extend = [b.getSouthWest().lng , b.getSouthWest().lat , b.getNorthEast().lng, b.getNorthEast().lat] 
+  var hexgrid = turf.hexGrid(extend, 1, "kilometers");
+  var hexgrid = turf.aggregate(hexgrid, data, aggregations);
+  hexgrid.features.forEach(setStyle);
+
+  var geojson = L.geoJson(hexgrid, {
+    onEachFeature: function (feature, layer) {
+      layer.setStyle(layer.feature.properties.withCount);
+    }
+  });
+```
+```javascript
+  // hexgrid setStyle
+  function setStyle(cell){
+      cell.properties.withCount = {}; 
+      var pt_count = cell.properties.pt_count;
+      var _withCount = {
+        color: '#4DFFFF',
+        weight: 0.1,
+        fill: '#4DFFFF',
+        fillOpacity: pt_count/8.5
+      };
+      cell.properties.withCount = _withCount;
+  }
+```
