@@ -25,6 +25,7 @@ bower install map-effects-100
 * [Raphael Animation](http://muxlab.github.io/map-effects-100/Leaflet/07_raphael-animation.html)
 * [Time Animation Play](http://muxlab.github.io/map-effects-100/Leaflet/08_time-animation.html)
 * [Search Nearest with Turf](http://muxlab.github.io/map-effects-100/Leaflet/09_nearest-with-turf.html)
+* [Hex Grid with Turf](http://muxlab.github.io/map-effects-100/Leaflet/10_hex-grid-with-truf.html)
 
 <!--* [Instagram Integration]()-->
 
