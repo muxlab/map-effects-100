@@ -231,11 +231,11 @@ map.on('mousemove', function (e) {
   }, 1000);
 });
 ```
-* [10_hex-grid-with-truf.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/10_hex-grid-with-truf.html)
-```javascript       
+* [10_hex-grid-with-turf.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/10_hex-grid-with-turf.html)
+```javascript
   // Generates a hexgrid within the specified bbox.
   var b = geojson.getBounds();
-  extend = [b.getSouthWest().lng , b.getSouthWest().lat , b.getNorthEast().lng, b.getNorthEast().lat] 
+  extend = [b.getSouthWest().lng , b.getSouthWest().lat , b.getNorthEast().lng, b.getNorthEast().lat]
   var hexgrid = turf.hexGrid(extend, 1, "kilometers");
   var hexgrid = turf.aggregate(hexgrid, data, aggregations);
   hexgrid.features.forEach(setStyle);
@@ -249,7 +249,7 @@ map.on('mousemove', function (e) {
 ```javascript
   // hexgrid setStyle
   function setStyle(cell){
-      cell.properties.withCount = {}; 
+      cell.properties.withCount = {};
       var pt_count = cell.properties.pt_count;
       var _withCount = {
         color: '#4DFFFF',
