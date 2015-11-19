@@ -90,7 +90,7 @@
               .transition()
               .delay(0)
               .duration(1000)
-              .attr('r', properties['mag']*2.5);
+              .attr('r', nearest.properties['mag']*2.5);
             $('circle#' + nearest.properties['code']).css('fill', '#ff0000');
             setTimeout(function() {
               d3.select('circle#' + nearest.properties['code'])
