@@ -24,7 +24,7 @@
         .circles {
           fill: #ff9c00;
         }
-        
+
         /* Marker offset */
         .eq-svg {
           margin-top: -12px;
@@ -43,7 +43,7 @@
 
     <!-- Turf.js -->
     <script src="//api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js"></script>
-    
+
     <script>
     $(function() {
 
@@ -72,7 +72,7 @@
           map.fitBounds(geojson.getBounds());
           geojson.addTo(map);
 
-          map.on('click', function (e) {
+          map.on('mousemove', function (e) {
             var point = {
               "type": "Feature",
               "properties": {
@@ -83,7 +83,7 @@
                 "coordinates": [e.latlng.lng, e.latlng.lat]
               }
             };
-            
+
             // Turf.nearest!
             var nearest = turf.nearest(point, data);
             d3.select('circle#' + nearest.properties['code'])
