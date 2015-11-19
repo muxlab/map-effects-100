@@ -26,8 +26,8 @@ bower install map-effects-100
 * [Time Animation Play](http://muxlab.github.io/map-effects-100/Leaflet/08_time-animation.html)
 * [Search Nearest with Turf](http://muxlab.github.io/map-effects-100/Leaflet/09_nearest-with-turf.html)
 * [Hex Grid with Turf](http://muxlab.github.io/map-effects-100/Leaflet/10_hex-grid-with-turf.html)
-
-<!--* [Instagram Integration]()-->
+* [Container Scroll Driven Map Navigation](http://muxlab.github.io/map-effects-100/Leaflet/11_scroll-driven-map-navigation.html)
+* [Map Driven Container Scroll Navigation](http://muxlab.github.io/map-effects-100/Leaflet/12_map-driven-scroll-navigation.html)
 
 Key code snipets of each file is [here](CODESNIPETS.md)!
 
@@ -37,6 +37,7 @@ Key code snipets of each file is [here](CODESNIPETS.md)!
 
 __Library__
 * [jQuery](https://jquery.com/)
+* [jQuery UI](https://jqueryui.com/)
 * [D3](http://d3js.org/)
 * [Chart.js](http://www.chartjs.org/)
 * [Turf](http://turfjs.org/)

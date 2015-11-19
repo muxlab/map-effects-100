@@ -22,9 +22,8 @@
 
         /* CSS3 Animation for sizing svg icon */
         div.svg-icon > svg > path {
-          animation-duration: 3s;
-          animation-name: pulse;
-          animation-iteration-count: infinite;
+          animation: pulse 3s infinite;
+          -webkit-animation: pulse 3s infinite;
         }
 
         @keyframes pulse {
@@ -38,7 +37,18 @@
             stroke-width: 6;
           }
         }
-
+        @-webkit-keyframes pulse {
+          0% {
+            stroke-width: 6;
+          }
+          45% {
+            stroke-width: 12;
+          }
+          100% {
+            stroke-width: 6;
+          }
+        }
+        
         /* Marker offset */
         .eq-svg {
           margin-top: -12px;
@@ -53,7 +63,7 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-
+    
     <script>
     $(function() {
 

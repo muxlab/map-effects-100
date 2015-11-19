@@ -23,11 +23,8 @@
         /* CSS3 Transition & Animation for sizing svg icon */
         .circles {
           fill: #ff9c00;
-          -webkit-transition-property: r, fill;
-          -webkit-transition-duration: 1s;
-          transition-property: r, fill;
-          transition-duration: 1s;
         }
+        
         /* Marker offset */
         .eq-svg {
           margin-top: -12px;
@@ -41,11 +38,12 @@
     <div id="map"></div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
     <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 
     <!-- Turf.js -->
     <script src="//api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js"></script>
-
+    
     <script>
     $(function() {
 
@@ -74,7 +72,7 @@
           map.fitBounds(geojson.getBounds());
           geojson.addTo(map);
 
-          map.on('mousemove', function (e) {
+          map.on('click', function (e) {
             var point = {
               "type": "Feature",
               "properties": {
@@ -85,13 +83,21 @@
                 "coordinates": [e.latlng.lng, e.latlng.lat]
               }
             };
-
+            
             // Turf.nearest!
             var nearest = turf.nearest(point, data);
-            $('circle#' + nearest.properties['code']).attr('r', nearest.properties['mag']*2.5);
+            d3.select('circle#' + nearest.properties['code'])
+              .transition()
+              .delay(0)
+              .duration(1000)
+              .attr('r', properties['mag']*2.5);
             $('circle#' + nearest.properties['code']).css('fill', '#ff0000');
             setTimeout(function() {
-              $('circle#' + nearest.properties['code']).attr('r', 1);
+              d3.select('circle#' + nearest.properties['code'])
+                .transition()
+                .delay(0)
+                .duration(1000)
+                .attr('r', 1);
               $('circle#' + nearest.properties['code']).css('fill', '#ff9c00');
             }, 1000);
           });

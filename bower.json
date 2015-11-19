@@ -26,6 +26,7 @@
     "d3": "~3.5.8",
     "leaflet": "~0.7.7",
     "raphael": "~2.1.4",
-    "leaflet.RaphaelLayer": "*"
+    "leaflet.RaphaelLayer": "*",
+    "jquery-ui": "jqueryui#~1.11.4"
   }
 }

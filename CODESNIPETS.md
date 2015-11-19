@@ -260,3 +260,35 @@ map.on('mousemove', function (e) {
       cell.properties.withCount = _withCount;
   }
 ```
+* [11_scroll-driven-map-navigation.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/11_scroll-driven-map-navigation.html)
+```javascript
+  // Watch the current scroll postion for scroll-driven map navigation!
+  var areaHeight = $('.photo-container').height() + 50;
+  var areaTop = (feature.properties['OBJECTID']-1) * areaHeight - 50; // -50 is a minor adjustment
+  var areaBottom = areaTop + areaHeight - 50; // -50 is a minor adjustment
+  $('div#photos').scroll(function() {
+    if($(this).scrollTop() >= areaTop && $(this).scrollTop() < areaBottom) {
+      $('.photo-container').css('opacity', 0.3);
+      $('div#container' + feature.properties['OBJECTID']).css('opacity', 1);
+      map.setView([feature.geometry.coordinates[1], feature.geometry.coordinates[0] + 0.015], 14);
+      iconHighlight('mizube' + feature.properties['NO_']);
+    }
+  });
+```
+* [12_map-driven-scroll-navigation.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/12_map-driven-scroll-navigation.html)
+```javascript
+  // Highlight a marker and Scroll container
+  layer.on('click', function (e) {
+    iconHighlight('mizube' + feature.properties['NO_']);
+
+    var duration = 2000;
+    var position = scrollPosition + $('#container' + feature.properties['OBJECTID']).position().top - 50;
+    console.log(feature.properties['OBJECTID'], feature.properties['NO_'], position);
+    $('div#photos').animate({
+      scrollTop: position
+    }, {
+      duration: duration,
+      easing: 'easeInOutQuart' // required jQuery UI
+    });
+  });
+```

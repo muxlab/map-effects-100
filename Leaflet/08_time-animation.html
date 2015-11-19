@@ -31,20 +31,12 @@
         /* CSS3 Transition & Animation for sizing svg icon */
         .circles {
           fill: #ff9c00;
-          -webkit-transition-property: r;
-          -webkit-transition-duration: 4s;
-          transition-property: r;
-          transition-duration: 4s;
 
-          -webkit-animation-duration: 5s;
-          -webkit-animation-name: fade-out;
-          -webkit-animation-iteration-count: 1;
-          animation-duration: 5s;
-          animation-name: fade-out;
-          animation-iteration-count: 1;
+          animation: fade-out 5s 1;
+          -webkit-animation: fade-out 5s 1;
         }
 
-        @-webkit-keyframes fade-out {
+        @keyframes fade-out {
           0% {
             opacity: 0.4;
           }
@@ -55,8 +47,7 @@
             opacity: 0;
           }
         }
-
-        @keyframes fade-out {
+        @-webkit-keyframes fade-out {
           0% {
             opacity: 0.4;
           }
@@ -75,8 +66,9 @@
     <div id="map"><div id="time">From: <i id="from"></i><br>To: <i id="to"></i></div></div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
     <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-
+    
     <script>
     $(function() {
 
@@ -114,7 +106,7 @@
               layer.setOpacity(0);
 
               (function(layer, properties) {
-                setInterval(function(){
+                setInterval(function(){ 
                   var tt = properties['time'];
                   // Filter by time
                   if(tt > t && tt <= (t+dt)) {
@@ -126,7 +118,11 @@
                     layer.setIcon(svgIcon);
                     // Set size by magnitude (you should use setTimeout to animate for sizing)
                     setTimeout(function() {
-                      $('circle#' + properties['code']).attr('r', properties['mag']*2.5);
+                      d3.select('circle#' + properties['code'])
+                        .transition()
+                        .delay(0)
+                        .duration(4000)
+                        .attr('r', properties['mag']*2.5);
                     }, 500);
                     // Clear feature when finished animation
                     setTimeout(function() {
@@ -140,6 +136,14 @@
           map.fitBounds(geojson.getBounds());
           geojson.addTo(map);
         });
+      }
+
+      function getSize(n) {
+        return n > 7 ? 20 :
+               n > 6 ? 16 :
+               n > 5 ? 12 :
+               n > 4 ? 8 :
+               8;
       }
 
       initMap();
