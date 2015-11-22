@@ -1,5 +1,7 @@
 # Map Effects 100
 
+[![Join the chat at https://gitter.im/muxlab/map-effects-100](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/muxlab/map-effects-100?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Bower version](https://badge.fury.io/bo/map-effects-100.svg)](http://badge.fury.io/bo/badges)
 
 Cool tips to design UI/UX on your Map.
