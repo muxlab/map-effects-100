@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Map Effects 100</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="https://leaflet.github.io/Leaflet.draw/leaflet.draw.css" />
+
+    <style>
+        html, body, #map {
+          height: 600px;
+          font-family: "Avenir LT W01 35 Light", "Century Gothic", Helvetica, Arial, sans-serif;
+        }
+        #title {
+          position: absolute;
+          z-index: 999;
+          top: 15px;
+          right: 25px;
+          color: #fff;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="title"><p>1X. Leaflet Heat</p></div>
+    <div id="map"></div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src='http://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js'></script>
+    <script>
+    $(function() {
+
+      console.log('%c⚛ Map Effects 100: Hello geohacker! ⚛', 'font-family:monospace;font-size:16px;color:darkblue;');
+      
+      // Leaflet Map Init
+      function initMap() {
+        var map = L.map('map').setView([36, 139], 5);
+
+        L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',{
+          attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+        }).addTo(map);
+ 
+        $.getJSON('../data/earthquakes.geojson', function(data) {
+          
+          var points = [];
+          for (var i = 0; i < data.features.length;  i++) {
+            var point = [data.features[i].geometry.coordinates[1], data.features[i].geometry.coordinates[0]];
+            points.push(point);
+          }
+
+          var heatLayer = L.heatLayer(points, {maxZoom: 5}).addTo(map);
+          map.fitBounds([[data.bbox[0], data.bbox[1]], [data.bbox[3], data.bbox[4]]]);
+          var draw = true;
+
+           // add points on mouse move (except when interacting with the map)
+          map.on({
+              movestart: function () { draw = false; },
+              moveend:   function () { draw = true; },
+              mousemove: function (e) {
+                  if (draw) {
+                      heatLayer.addLatLng(e.latlng);
+                  }
+              }
+          })
+          
+        });
+      }
+
+      initMap();
+    
+    });
+    </script>
+  </body>
+</html>
