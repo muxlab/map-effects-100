@@ -292,3 +292,24 @@ map.on('mousemove', function (e) {
     });
   });
 ```
+* [13_avator-icon.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/13_avator-icon.html)
+```css
+/* Custom icon style */
+.leaflet-avator-icon {
+  border: 4px #fff solid; /* Inner border */
+  border-radius: 40px; /* Making round */
+  -webkit-border-radius: 40px;
+  box-shadow: 0 0 0 2px #00D0CE, 0 8px 5px rgba(0,0,0,0.4); /* Outer border and shadow */
+}
+```
+```javascript
+// Extend Leaflet Icon
+var AvatarIcon = L.Icon.extend({
+  options: {
+    className: 'leaflet-avator-icon', // Custom Icon Class
+    iconSize: [40, 40], // Avatar Image Size
+    iconAnchor: [20, 20], // Centralizing icon
+    popupAnchor: [3, -20] // Centralizing popup
+  }
+});
+```
