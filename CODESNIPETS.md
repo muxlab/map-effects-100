@@ -292,7 +292,7 @@ map.on('mousemove', function (e) {
     });
   });
 ```
-* [13_avator-icon.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/13_avator-icon.html)
+* [13_avatar-icon.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/13_avatar-icon.html)
 ```css
 /* Custom icon style */
 .leaflet-avator-icon {

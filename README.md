@@ -30,7 +30,7 @@ bower install map-effects-100
 * [Hex Grid with Turf](http://muxlab.github.io/map-effects-100/Leaflet/10_hex-grid-with-turf.html)
 * [Container Scroll Driven Map Navigation](http://muxlab.github.io/map-effects-100/Leaflet/11_scroll-driven-map-navigation.html)
 * [Map Driven Container Scroll Navigation](http://muxlab.github.io/map-effects-100/Leaflet/12_map-driven-scroll-navigation.html)
-* [Social Media Avator on Map](http://muxlab.github.io/map-effects-100/Leaflet/13_avator-icon.html)
+* [Social Media Avatar on Map](http://muxlab.github.io/map-effects-100/Leaflet/13_avatar-icon.html)
 
 Key code snipets of each file is [here](CODESNIPETS.md)!
 
