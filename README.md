@@ -4,7 +4,9 @@
 
 [![Bower version](https://badge.fury.io/bo/map-effects-100.svg)](http://badge.fury.io/bo/badges)
 
-Cool tips to design UI/UX on your Map.
+<img src="MapEffects100.png" width="600px"/>
+
+[__Map Effects 100__](http://muxlab.github.io/map-effects-100/) has cool tips to design UI/UX on your Map.
 
 ### Map?
 
@@ -18,6 +20,7 @@ bower install map-effects-100
 
 ## Index
 
+[__Main page__](http://muxlab.github.io/map-effects-100/)
 1. [Fade-in Highlight Style](http://muxlab.github.io/map-effects-100/Leaflet/01_fadein-highlight.html)
 * [Classified Highlight Color](http://muxlab.github.io/map-effects-100/Leaflet/02_classified-highlightcolor.html)
 * [Rising Popup](http://muxlab.github.io/map-effects-100/Leaflet/03_rising-popup.html)

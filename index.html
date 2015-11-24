@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Map Effects 100</title>
+    <link rel="shortcut icon" href="img/favicon.ico"> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.10.1/bootstrap-social.min.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+
+  <body>
+    <a href="https://github.com/muxlab/map-effects-100"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+    <div id="title"><h1><a href="https://github.com/muxlab/map-effects-100">Map Effects 100</a></h1></div>
+    <div id="containerDOM"></div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react-dom.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.27.3/react-bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+    <!--[if lt IE 9]>
+      <script>
+        (function(){
+          var ef = function(){};
+          window.console = window.console || {log:ef,warn:ef,error:ef,dir:ef};
+        }());
+      </script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv-printshiv.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/3.4.0/es5-shim.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/3.4.0/es5-sham.js"></script>
+    <![endif]-->
+    
+    <script type="text/babel">
+
+      console.log('%c⚛ Map Effects 100: Hello geohacker! ⚛', 'font-family:monospace;font-size:16px;color:darkblue;');
+
+      var infos = [
+        {
+          title: '1. Fade-in Highlight Style',
+          filename: '01_fadein-highlight.html',
+          imgUrl: 'assets/img/01.png',
+          demoUrl: 'http://muxlab.github.io/map-effects-100/Leaflet/01_fadein-highlight.html',
+          codeUrl: 'https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/01_fadein-highlight.html'
+        },
+        {
+          title: '2. Classified Highlight Color',
+          filename: '02_classified-highlightcolor.html',
+          imgUrl: 'assets/img/02.png',
+          demoUrl: 'http://muxlab.github.io/map-effects-100/Leaflet/02_classified-highlightcolor.html',
+          codeUrl: 'https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/02_classified-highlightcolor.html'
+        },
+        {
+          title: '3. Rising Popup',
+          filename: '03_rising-popup.html',
+          imgUrl: 'assets/img/03.png',
+          demoUrl: 'http://muxlab.github.io/map-effects-100/Leaflet/03_rising-popup.html',
+          codeUrl: 'https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/03_rising-popup.html'
+        },
+        {
+          title: '4. Interlocking Legend',
+          filename: '04_interlocking-legend.html',
+          imgUrl: 'assets/img/04.png',
+          demoUrl: 'http://muxlab.github.io/map-effects-100/Leaflet/04_interlocking-legend.html',
+          codeUrl: 'https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/04_interlocking-legend.html'
+        },
+        {
+          title: '5. SVG Marker Animation',
+          filename: '05_svg-marker-animation.html',
+          imgUrl: 'assets/img/05.png',
+          demoUrl: 'http://muxlab.github.io/map-effects-100/Leaflet/05_svg-marker-animation.html',
+          codeUrl: 'https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/05_svg-marker-animation.html'
+        },
+        {
+          title: '6. Binding Chart to Map Operations',
+          filename: '06_binding-chart.html',
+          imgUrl: 'assets/img/06.png',
+          demoUrl: 'http://muxlab.github.io/map-effects-100/Leaflet/06_binding-chart.html',
+          codeUrl: 'https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/06_binding-chart.html'
+        },
+        {
+          title: '7. Raphael Animation',
+          filename: '07_raphael-animation.html',
+          imgUrl: 'assets/img/07.png',
+          demoUrl: 'http://muxlab.github.io/map-effects-100/Leaflet/07_raphael-animation.html',
+          codeUrl: 'https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/07_raphael-animation.html'
+        },
+        {
+          title: '8. Time Animation Play',
+          filename: '08_time-animation.html',
+          imgUrl: 'assets/img/08.png',
+          demoUrl: 'http://muxlab.github.io/map-effects-100/Leaflet/08_time-animation.html',
+          codeUrl: 'https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/08_time-animation.html'
+        },
+        {
+          title: '9. Search Nearest with Turf',
+          filename: '09_nearest-with-turf.html',
+          imgUrl: 'assets/img/09.png',
+          demoUrl: 'http://muxlab.github.io/map-effects-100/Leaflet/09_nearest-with-turf.html',
+          codeUrl: 'https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/09_nearest-with-turf.html'
+        },
+        {
+          title: '10. Hex Grid with Turf',
+          filename: '10_hex-grid-with-turf.html',
+          imgUrl: 'assets/img/10.png',
+          demoUrl: 'http://muxlab.github.io/map-effects-100/Leaflet/10_hex-grid-with-turf.html',
+          codeUrl: 'https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/10_hex-grid-with-turf.html'
+        },
+        {
+          title: '11. Container Scroll Driven Map Navigation',
+          filename: '11_scroll-driven-map-navigation.html',
+          imgUrl: 'assets/img/11.png',
+          demoUrl: 'http://muxlab.github.io/map-effects-100/Leaflet/11_scroll-driven-map-navigation.html',
+          codeUrl: 'https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/11_scroll-driven-map-navigation.html'
+        },
+        {
+          title: '12. Map Driven Container Scroll Navigation',
+          filename: '12_map-driven-scroll-navigation.html',
+          imgUrl: 'assets/img/12.png',
+          demoUrl: 'http://muxlab.github.io/map-effects-100/Leaflet/12_map-driven-scroll-navigation.html',
+          codeUrl: 'https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/12_map-driven-scroll-navigation.html'
+        },
+        {
+          title: '13. Social Media Avatar on Map',
+          filename: '13_avatar-icon.html',
+          imgUrl: 'assets/img/13.png',
+          demoUrl: 'http://muxlab.github.io/map-effects-100/Leaflet/13_avatar-icon.html',
+          codeUrl: 'https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/13_avatar-icon.html'
+        }
+      ]
+
+      // React Bootstrap Components
+      var Navbar = ReactBootstrap.Navbar;
+      var NavBrand = ReactBootstrap.NavBrand;
+      var Nav = ReactBootstrap.Nav;
+      var NavItem = ReactBootstrap.NavItem;
+      var NavDropdown = ReactBootstrap.NavDropdown;
+      var MenuItem = ReactBootstrap.MenuItem;
+      var Grid = ReactBootstrap.Grid;
+      var Row = ReactBootstrap.Row;
+      var Col = ReactBootstrap.Col;
+      var Thumbnail = ReactBootstrap.Thumbnail;
+      var Button = ReactBootstrap.Button;
+      var Modal = ReactBootstrap.Modal;
+
+      // Item Layout
+      var EffectsLayout = React.createClass({
+        getInitialState() {
+          return {
+            infos : infos
+          };
+        },
+        showDemo(e) {
+          location.href = e.target.title;
+        },
+        showCode(e) {
+          location.href = e.target.title;
+        },
+        render() {
+          var showDemo = this.showDemo;
+          var showCode = this.showCode;
+          var items = this.state.infos.map(function(info) {
+            return (
+              <Col xs={12} md={4} key={info.filename}>
+                <div className={"item"}>
+                  <div className={"title-header"}>
+                    <h3>{info.title}</h3>
+                    <p>{info.filename}</p>
+                  </div>
+                  <div className={"avatar"}><img src={info.imgUrl} alt="" /></div>
+                  <p>
+                    <Button className="btn btn-demo" title={info.demoUrl} onClick={showDemo}>View Demo</Button>
+                    <Button className="btn-github" title={info.codeUrl} onClick={showCode}>View Code</Button>
+                  </p>
+                </div>
+              </Col>
+            );
+          });
+          //console.log(items);
+          return (
+            <Grid>
+              <Row>
+                {items}
+              </Row>
+            </Grid>
+          )
+        }
+      });
+
+      ReactDOM.render(<EffectsLayout />, document.getElementById("containerDOM"));
+
+    </script>
+    <script src="assets/ga.js"></script>
+  </body>
+</html>

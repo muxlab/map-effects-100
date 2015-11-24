@@ -1,0 +1,60 @@
+html body {
+  background: url("img/bg.png") repeat;
+  font-family: "Avenir LT W01 35 Light", "Century Gothic", "Meiryo" Helvetica, Arial, sans-serif;
+}
+
+#title {
+    text-align: center;
+    margin: 50px;
+    font-weight: 100;
+}
+
+h3 {
+	font-size: 18px;
+    font-weight: 700;
+    font-style: normal;
+    color: #3d808b;
+    margin-bottom: 6px;
+}
+p {
+    color: #3d808b;
+}
+div.item {
+	margin-bottom: 25px;
+	padding: 34px 25px 22px;
+    text-align: center;
+    background: #fff
+}
+div.title-header {
+	height: 80px;
+}
+div.avatar {
+	width: 150px;
+    height: 150px;
+    margin: 0 auto 22px;
+    border: 2px solid #3d808b;
+    padding: 3px;
+    border-radius: 50%;
+}
+.avatar img {
+	display: block;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+}
+.btn {
+    border: 0;
+    border-radius: 0;
+    font-weight: 700;
+    margin: 5px;
+}
+.btn-demo {
+    border: 0;
+	color: #fff;
+	background-color: #3d808b;
+}
+.btn-demo:hover {
+    border: 0;
+	color: #fff;
+	background-color: #5dabb8;
+}
