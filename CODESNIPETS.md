@@ -313,3 +313,102 @@ var AvatarIcon = L.Icon.extend({
   }
 });
 ```
+* [14_custom-popup.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/14_custom-popup.html)
+```css
+/* Custom Popup */
+.leaflet-popup {
+  width: 300px;
+  transition: opacity 1s linear;
+}
+.leaflet-popup-content-wrapper {
+  width: 280px;
+  border-radius: 0;
+  float: left;
+  color: white;
+  background: rgba(255,100,0,0.8);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.leaflet-popup-content-wrapper a {
+  color: white;
+  font-size: 12pt;
+}
+.leaflet-popup-content-wrapper h1 {
+  color: white;
+  font-size: 22pt;
+}
+.leaflet-popup-content-wrapper h2 {
+  color: white;
+  font-size: 18pt;
+}
+.leaflet-popup-content-wrapper h3 {
+  color: white;
+  font-size: 16pt;
+}
+.leaflet-popup-content-wrapper h4 {
+  color: white;
+  font-size: 14pt;
+}
+.leaflet-popup-content-wrapper h5 {
+  color: white;
+  font-size: 12pt;
+}
+.leaflet-popup-content-wrapper p {
+  color: white;
+  font-size: 12pt;
+}
+.leaflet-popup-tip-container {
+  height: 70px;
+  margin-bottom: 6px;
+}
+.leaflet-popup-tip {
+  display: none;
+  background: rgba(0,0,0,0);
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+.leaflet-popup-tip-svg {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  width: 2px;
+  height: 100px;
+}
+.leaflet-container a.leaflet-popup-close-button {
+  color: white;
+  padding: 9px 25px 0 0;
+}
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: #ffe8a5;
+}
+```
+```javascript
+// Custom Popup
+map.on('popupopen', function (e) {
+  var svg = d3.select(".leaflet-popup-tip-container").append("svg")
+      .attr({
+        class: 'leaflet-popup-tip-svg',
+        width: 2,
+        height: 100,
+      });
+  var c1 = [1, 0];
+  var c2 = [1, 91];
+  var carray = [c1, c2];
+  var line = d3.svg.line()
+      .x(function(d) {return d[0];})
+      .y(function(d) {return d[1];});
+  var path = svg.append('path')
+      .attr({
+        'class': 'leaflet-popup-tip-path',
+        'd': line(carray),
+        'stroke': 'rgba(255,100,0,0.8)',
+        'stroke-width': 2,
+        'stroke-dashoffset': 91
+      })
+      .style("stroke-dasharray", "91")
+      .style("stroke-linecap", "round");
+  path.transition().delay(300).duration(1000).attr('stroke-dashoffset', 0);
+});
+map.on('popupclose', function (e) {
+  e.popup._tipContainer.children[1].remove();
+});
+```

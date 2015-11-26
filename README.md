@@ -21,7 +21,6 @@ bower install map-effects-100
 ## Index
 
 [__Main page__](http://muxlab.github.io/map-effects-100/)
-
 1. [Fade-in Highlight Style](http://muxlab.github.io/map-effects-100/Leaflet/01_fadein-highlight.html)
 * [Classified Highlight Color](http://muxlab.github.io/map-effects-100/Leaflet/02_classified-highlightcolor.html)
 * [Rising Popup](http://muxlab.github.io/map-effects-100/Leaflet/03_rising-popup.html)
@@ -35,6 +34,7 @@ bower install map-effects-100
 * [Container Scroll Driven Map Navigation](http://muxlab.github.io/map-effects-100/Leaflet/11_scroll-driven-map-navigation.html)
 * [Map Driven Container Scroll Navigation](http://muxlab.github.io/map-effects-100/Leaflet/12_map-driven-scroll-navigation.html)
 * [Social Media Avatar on Map](http://muxlab.github.io/map-effects-100/Leaflet/13_avatar-icon.html)
+* [Custom Popup with D3](http://muxlab.github.io/map-effects-100/Leaflet/14_custom-popup.html)
 
 Key code snipets of each file is [here](CODESNIPETS.md)!
 
