@@ -21,6 +21,7 @@ bower install map-effects-100
 ## Index
 
 [__Main page__](http://muxlab.github.io/map-effects-100/)
+
 1. [Fade-in Highlight Style](http://muxlab.github.io/map-effects-100/Leaflet/01_fadein-highlight.html)
 * [Classified Highlight Color](http://muxlab.github.io/map-effects-100/Leaflet/02_classified-highlightcolor.html)
 * [Rising Popup](http://muxlab.github.io/map-effects-100/Leaflet/03_rising-popup.html)
