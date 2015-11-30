@@ -117,14 +117,15 @@
       // Leaflet Map Init
       function initMap() {
         var map = L.map('map', {
-          // Disable almost map operation except a zoom control
+          // Disable almost map operation
           dragging: false,
           touchZoom: false,
           scrollWheelZoom: false,
           doubleClickZoom: false,
           boxZoom: false,
           tap: false,
-          keyboard: false
+          keyboard: false,
+          zoomControl: false
         }).setView([35.8, 139], 8);
 
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
