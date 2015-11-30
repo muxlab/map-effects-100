@@ -102,7 +102,7 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
-    
+
     <script>
     $(function() {
 
@@ -116,7 +116,16 @@
 
       // Leaflet Map Init
       function initMap() {
-        var map = L.map('map').setView([35.8, 139], 8);
+        var map = L.map('map', {
+          // Disable almost map operation except a zoom control
+          dragging: false,
+          touchZoom: false,
+          scrollWheelZoom: false,
+          doubleClickZoom: false,
+          boxZoom: false,
+          tap: false
+          keyboard: false,
+        }).setView([35.8, 139], 8);
 
         L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 18,
