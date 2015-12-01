@@ -68,7 +68,7 @@
           fillColor: '#ff6500'
         };
 
-        $.getJSON('data/japan.geojson', function(data) {
+        $.getJSON('../data/japan.geojson', function(data) {
           var geojson = L.geoJson(data, {
             onEachFeature: function (feature, layer) {
               // Set the default style into layer
