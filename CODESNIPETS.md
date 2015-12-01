@@ -412,3 +412,16 @@ map.on('popupclose', function (e) {
   e.popup._tipContainer.children[1].remove();
 });
 ```
+* [15_svg-border-generation.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/15_svg-border-generation.html)
+```css
+svg.leaflet-zoom-animated > g > path {
+  /* for a border line generation */
+  stroke-dashoffset: 700;
+  stroke-dasharray: 700;
+  stroke-linecap: round;
+}
+```
+```javascript
+// Border line generation
+d3.selectAll('.leaflet-zoom-animated').selectAll('g').selectAll('path').transition().delay(300).duration(7000).style('stroke-dashoffset', 0);
+```

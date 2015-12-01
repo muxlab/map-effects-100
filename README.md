@@ -36,6 +36,7 @@ bower install map-effects-100
 * [Map Driven Container Scroll Navigation](http://muxlab.github.io/map-effects-100/Leaflet/12_map-driven-scroll-navigation.html)
 * [Social Media Avatar on Map](http://muxlab.github.io/map-effects-100/Leaflet/13_avatar-icon.html)
 * [Custom Popup with D3](http://muxlab.github.io/map-effects-100/Leaflet/14_custom-popup.html)
+* [SVG Border Line Generation](http://muxlab.github.io/map-effects-100/Leaflet/15_svg-border-generation.html)
 
 Key code snipets of each file is [here](CODESNIPETS.md)!
 
