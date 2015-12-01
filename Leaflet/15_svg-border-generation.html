@@ -89,6 +89,9 @@
 
           // Border line generation
           d3.selectAll('.leaflet-zoom-animated').selectAll('g').selectAll('path').transition().delay(300).duration(7000).style('stroke-dashoffset', 0);
+          setTimeout(function() {
+            d3.selectAll('.leaflet-zoom-animated').selectAll('g').selectAll('path').style('stroke-dasharray', 0);
+          }, 3700);
         });
       }
 
