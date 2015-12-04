@@ -1,0 +1,59 @@
+{
+    "data": [{
+        "comment": "Autumn colors!",
+        "likes": 3,
+        "created_time": "1443225600010",
+        "images": {
+            "thumbnail": {
+                "url": "data/img/picnic/kinuta-park.jpg",
+                "width": 150,
+                "height": 150
+            },
+            "standard_resolution": {
+                "url": "data/img/picnic/kinuta-park.jpg",
+                "width": 612,
+                "height": 612
+            }
+        },
+        "id": "0",
+        "location": [35.630454, 139.621190]
+    },
+    {
+        "comment": "Happy first birthday :-)",
+        "likes": 8,
+        "created_time": "5846241679",
+        "images": {
+            "thumbnail": {
+                "url": "data/img/picnic/johoku-central-park.jpg",
+                "width": 150,
+                "height": 150
+            },
+            "standard_resolution": {
+                "url": "data/img/picnic/johoku-central-park.jpg",
+                "width": 612,
+                "height": 612
+            }
+        },
+        "id": "1",
+        "location": [35.753907, 139.672174]
+    },
+    {
+        "comment": "Let's enjoy picnic!",
+        "likes": 12,
+        "created_time": "6996251659",
+        "images": {
+            "thumbnail": {
+                "url": "data/img/picnic/hyogojima-park.jpg",
+                "width": 150,
+                "height": 150
+            },
+            "standard_resolution": {
+                "url": "data/img/picnic/hyogojima-park.jpg",
+                "width": 612,
+                "height": 612
+            }
+        },
+        "id": "2",
+        "location": [35.614582, 139.611126]
+    }]
+}

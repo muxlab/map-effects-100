@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Map Effects 100</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <style>
+        html, body, #map {
+          height: 100%;
+          font-family: "Avenir LT W01 35 Light", "Century Gothic", Helvetica, Arial, sans-serif;
+        }
+        #title {
+          position: absolute;
+          z-index: 999;
+          top: 15px;
+          right: 25px;
+          color: #333;
+        }
+
+        .leaflet-container {
+          background: rgba(0,0,0,0);
+        }
+
+        /* Custom Popup Style */
+        .leaflet-popup-content-wrapper {
+          border-radius: 0;
+          padding: 0;
+        }
+        .leaflet-popup-content {
+          margin: 0;
+        }
+
+        /* Responsive Popup Style */
+        .time {
+          padding-top: 7px;
+        }
+        .date {
+          font-size: 16pt;
+          margin-bottom: -6px;
+        }
+        .likes-into-popup {
+          height: 14px;
+          padding: 0 25px 25px 25px;
+        }
+        .likes-icon {
+          display: inline-block;
+          background: url("data/img/like-icon.png");
+          height: 14px;
+          width: 15px;
+          margin-right: 5px;
+          opacity: 0.5;
+          cursor: pointer;
+        }
+        .likes-icon:hover {
+          background: url("data/img/like-icon-highlight.png");
+        }
+        .likes-count {
+          height: 14px;
+          color: #555;
+        }
+        @media (max-width: 600px) {
+          div.leaflet-popup.leaflet-zoom-animated {
+            width: 150px;
+          }
+          .leaflet-popup-content {
+            margin: 0 -1px 0 0;
+            width: 150px;
+          }
+          .pict-into-popup {
+            width: 150px;
+          }
+          .pict {
+            width: 150px;
+          }
+          .time-into-popup {
+            margin: 15px;
+            position: absolute;
+            z-index: 2;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            color: white;
+            background-color: red;
+            text-align: center;
+            font-size: 7pt;
+            font-weight: bold;
+          }
+          .comment-into-popup {
+            color: red;
+            width: 100px;
+            padding: 25px;
+            font-size: 9pt;
+            font-weight: 100;
+            word-wrap: break-word;
+          }
+          .likes-into-popup {
+            height: 14px;
+            padding: 0 25px 25px 25px;
+          }
+          .likes-icon {
+            display: inline-block;
+            height: 14px;
+            width: 15px;
+            margin-right: 5px;
+            opacity: 0.5;
+            cursor: pointer;
+            background: url("../img/like-icon.png");
+          }
+          .likes-icon:hover {
+            background: url("../img/like-icon-highlight.png");
+          }
+          .likes-count {
+            height: 14px;
+            color: #555;
+          }
+        }
+        @media (min-width: 600px) {
+          div.leaflet-popup.leaflet-zoom-animated {
+            width: 250px;
+          }
+          .leaflet-popup-content {
+            margin: 0 -1px 0 0;
+          }
+          .pict-into-popup {
+            width: 250px;
+          }
+          .pict {
+            width: 250px;
+          }
+          .time-into-popup {
+            margin: 25px;
+            position: absolute;
+            z-index: 2;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            color: white;
+            background-color: red;
+            text-align: center;
+            font-size: 7pt;
+            font-weight: bold;
+          }
+          .comment-into-popup {
+            color: red;
+            width: 250px;
+            padding: 25px;
+            font-size: 12pt;
+            font-weight: 100;
+            word-wrap: break-word;
+          }
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="title"><p>16. Responsive Popup with Picture</p></div>
+    <div id="map"></div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+    <script>
+    $(function() {
+
+      console.log('%c⚛ Map Effects 100: Hello geohacker! ⚛', 'font-family:monospace;font-size:16px;color:darkblue;');
+
+      // Leaflet Map Init
+      function initMap() {
+        var map = L.map('map', { zoomControl: false }).setView([35.75, 139.65], 10);
+
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+            '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+          id: 'osm'
+        }).addTo(map);
+
+        $.getJSON('data/dummy-picts-rest.json', function(data) {
+          $.each(data.data, function(i, val) {
+            var date = new Date(Number(val.created_time)).getDate();
+            var m = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+            var month = m[new Date(Number(val.created_time)).getMonth()];
+
+            var content = '<div class="time-into-popup"><div class="time"><div class="date">' + date + '</div><div class="day">' + month + '</div></div></div>'
+             + '<div class="pict-into-popup"><img class="pict" src="' + val.images.standard_resolution.url + '"></div>'
+             + '<div class="comment-into-popup">' + val.comment + '</div>'
+             + '<div class="likes-into-popup"><div class="likes-count"><span class="likes-icon 0up"></span>' + val.likes + '</div></div>'
+            var pictures = L.marker(val.location).addTo(map)
+              .bindPopup(content);
+          });
+        });
+      }
+
+      function getDay() {
+
+      }
+
+      initMap();
+
+    });
+    </script>
+  </body>
+</html>
