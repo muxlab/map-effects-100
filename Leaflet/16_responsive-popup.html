@@ -178,7 +178,7 @@
           id: 'osm'
         }).addTo(map);
 
-        $.getJSON('data/dummy-picts-rest.json', function(data) {
+        $.getJSON('../data/dummy-picts-rest.json', function(data) {
           $.each(data.data, function(i, val) {
             var date = new Date(Number(val.created_time)).getDate();
             var m = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
