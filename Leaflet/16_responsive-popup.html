@@ -6,6 +6,7 @@
     <title>Map Effects 100</title>
     <link rel="shortcut icon" href="../img/favicon.ico">
     <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <style>
         html, body, #map {
           height: 100%;
@@ -23,7 +24,7 @@
           background: rgba(0,0,0,0);
         }
 
-        /* Custom Popup Style */
+        /* Responsive Popup Style */
         .leaflet-popup-content-wrapper {
           border-radius: 0;
           padding: 0;
@@ -31,8 +32,6 @@
         .leaflet-popup-content {
           margin: 0;
         }
-
-        /* Responsive Popup Style */
         .time {
           padding-top: 7px;
         }
@@ -40,25 +39,37 @@
           font-size: 16pt;
           margin-bottom: -6px;
         }
+        .pict-into-popup {
+          overflow: hidden;
+          cursor: pointer;
+        }
+        .pict {
+          -webkit-transform: scale(1);
+        	transform: scale(1);
+        	-webkit-transition: .3s ease-in-out;
+        	transition: .3s ease-in-out;
+        }
+        .pict:hover {
+        	-webkit-transform: scale(1.2);
+        	transform: scale(1.2);
+        }
         .likes-into-popup {
           height: 14px;
           padding: 0 25px 25px 25px;
+        }
+        .likes-count {
+          height: 14px;
+          color: #777;
+          cursor: pointer;
+        }
+        .likes-count:hover {
+          color: red;
         }
         .likes-icon {
           display: inline-block;
           height: 14px;
           width: 15px;
           margin-right: 5px;
-          opacity: 0.5;
-          cursor: pointer;
-          background: url("../img/like-icon.png");
-        }
-        .likes-icon:hover {
-          background: url("../img/like-icon-highlight.png");
-        }
-        .likes-count {
-          height: 14px;
-          color: #555;
         }
         @media (max-width: 600px) {
           div.leaflet-popup.leaflet-zoom-animated {
@@ -73,6 +84,7 @@
           }
           .pict {
             width: 150px;
+            height: 150px;
           }
           .time-into-popup {
             margin: 15px;
@@ -108,6 +120,7 @@
           }
           .pict {
             width: 250px;
+            height: 250px;
           }
           .time-into-popup {
             margin: 25px;
@@ -135,7 +148,7 @@
   </head>
 
   <body>
-    <div id="title"><p>16. Responsive Popup with Picture</p></div>
+    <div id="title"><p>16. Responsive Popup for Picture</p></div>
     <div id="map"></div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -167,7 +180,7 @@
             var content = '<div class="time-into-popup"><div class="time"><div class="date">' + date + '</div><div class="day">' + month + '</div></div></div>'
              + '<div class="pict-into-popup"><img class="pict" src="' + val.images.standard_resolution.url + '"></div>'
              + '<div class="comment-into-popup">' + val.comment + '</div>'
-             + '<div class="likes-into-popup"><div class="likes-count"><span class="likes-icon 0up"></span>' + val.likes + '</div></div>'
+             + '<div class="likes-into-popup"><span class="likes-count"><i class="fa fa-heart likes-icon"></i>' + val.likes + '</span></div>'
             var pictures = L.marker(val.location).addTo(map)
               .bindPopup(content);
           });

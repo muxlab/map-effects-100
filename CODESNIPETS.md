@@ -425,3 +425,134 @@ svg.leaflet-zoom-animated > g > path {
 // Border line generation
 d3.selectAll('.leaflet-zoom-animated').selectAll('g').selectAll('path').transition().delay(300).duration(7000).style('stroke-dashoffset', 0);
 ```
+* [16_responsive-popup.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/16_responsive-popup.html)
+```css
+/* Responsive Popup Style */
+.leaflet-popup-content-wrapper {
+  border-radius: 0;
+  padding: 0;
+}
+.leaflet-popup-content {
+  margin: 0;
+}
+.time {
+  padding-top: 7px;
+}
+.date {
+  font-size: 16pt;
+  margin-bottom: -6px;
+}
+.pict-into-popup {
+  overflow: hidden;
+  cursor: pointer;
+}
+.pict {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.pict:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.likes-into-popup {
+  height: 14px;
+  padding: 0 25px 25px 25px;
+}
+.likes-count {
+  height: 14px;
+  color: #777;
+  cursor: pointer;
+}
+.likes-count:hover {
+  color: red;
+}
+.likes-icon {
+  display: inline-block;
+  height: 14px;
+  width: 15px;
+  margin-right: 5px;
+}
+@media (max-width: 600px) {
+  div.leaflet-popup.leaflet-zoom-animated {
+    width: 150px;
+  }
+  .leaflet-popup-content {
+    margin: 0 -1px 0 0;
+    width: 150px;
+  }
+  .pict-into-popup {
+    width: 150px;
+  }
+  .pict {
+    width: 150px;
+    height: 150px;
+  }
+  .time-into-popup {
+    margin: 15px;
+    position: absolute;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    color: white;
+    background-color: red;
+    text-align: center;
+    font-size: 7pt;
+    font-weight: bold;
+  }
+  .comment-into-popup {
+    color: red;
+    width: 100px;
+    padding: 25px;
+    font-size: 9pt;
+    font-weight: 100;
+    word-wrap: break-word;
+  }
+}
+@media (min-width: 600px) {
+  div.leaflet-popup.leaflet-zoom-animated {
+    width: 250px;
+  }
+  .leaflet-popup-content {
+    margin: 0 -1px 0 0;
+  }
+  .pict-into-popup {
+    width: 250px;
+  }
+  .pict {
+    width: 250px;
+    height: 250px;
+  }
+  .time-into-popup {
+    margin: 25px;
+    position: absolute;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    color: white;
+    background-color: red;
+    text-align: center;
+    font-size: 7pt;
+    font-weight: bold;
+  }
+  .comment-into-popup {
+    color: red;
+    width: 250px;
+    padding: 25px;
+    font-size: 12pt;
+    font-weight: 100;
+    word-wrap: break-word;
+  }
+}
+```
+```javascript
+var content = '<div class="time-into-popup"><div class="time"><div class="date">' + date + '</div><div class="day">' + month + '</div></div></div>'
+ + '<div class="pict-into-popup"><img class="pict" src="' + val.images.standard_resolution.url + '"></div>'
+ + '<div class="comment-into-popup">' + val.comment + '</div>'
+ + '<div class="likes-into-popup"><span class="likes-count"><i class="fa fa-heart likes-icon"></i>' + val.likes + '</span></div>'
+var pictures = L.marker(val.location).addTo(map)
+  .bindPopup(content);
+```

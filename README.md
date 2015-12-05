@@ -37,6 +37,7 @@ bower install map-effects-100
 * [Social Media Avatar on Map](http://muxlab.github.io/map-effects-100/Leaflet/13_avatar-icon.html)
 * [Custom Popup with D3](http://muxlab.github.io/map-effects-100/Leaflet/14_custom-popup.html)
 * [SVG Border Line Generation](http://muxlab.github.io/map-effects-100/Leaflet/15_svg-border-generation.html)
+* [Responsive Popup with Picture](http://muxlab.github.io/map-effects-100/Leaflet/16_responsive-popup.html)
 
 Key code snipets of each file is [here](CODESNIPETS.md)!
 
@@ -50,6 +51,9 @@ __Library__
 * [D3](http://d3js.org/)
 * [Chart.js](http://www.chartjs.org/)
 * [Turf](http://turfjs.org/)
+
+__CSS__
+* [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
 
 __Leaflet Plugin__
 * [Leaflet.RaphaelLayer](http://dynmeth.github.io/RaphaelLayer/)
