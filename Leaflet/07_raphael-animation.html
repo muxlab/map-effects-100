@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
     <title>Map Effects 100</title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
     <style>
         html, body, #map {
           height: 600px;
@@ -35,11 +35,11 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//d3js.org/d3.v3.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
-    <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
 
     <!-- Raphael Layer -->
     <script src="../lib/leaflet.RaphaelLayer/dist/rlayer.js"></script>
-    
+
     <script>
     $(function() {
 
@@ -48,7 +48,7 @@
       function initMap() {
         var map = L.map('map').setView([36, 139], 5);
 
-        L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',{
+        L.tileLayer('//{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',{
           attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
         }).addTo(map);
 
@@ -65,9 +65,9 @@
                     // Raphael Layer: Bezier & Pulse Animation
                     var b = new R.BezierAnim([e.latlng, [feature.geometry.coordinates[1], feature.geometry.coordinates[0]]], {}, function() {
                       var p = new R.Pulse(
-                          [feature.geometry.coordinates[1], feature.geometry.coordinates[0]], 
+                          [feature.geometry.coordinates[1], feature.geometry.coordinates[0]],
                           6,
-                          {'stroke': '#f72d3f', 'fill': '#f72d3f'}, 
+                          {'stroke': '#f72d3f', 'fill': '#f72d3f'},
                           {'stroke': '#f72d3f', 'stroke-width': 1});
                       map.addLayer(p);
                       setTimeout(function() {

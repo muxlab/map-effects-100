@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
     <title>Map Effects 100</title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
     <style>
         html, body, #map {
           height: 600px;
@@ -47,9 +47,9 @@
     <div id="map"></div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-    
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
     <script>
     $(function() {
 
@@ -61,7 +61,7 @@
       function initMap() {
         var map = L.map('map').setView([35.8, 139], 8);
 
-        L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',{
+        L.tileLayer('//{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',{
           attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
         }).addTo(map);
 
@@ -89,7 +89,7 @@
 
         // Two styles
         var defaultStyle = {
-          color: '#2262CC', 
+          color: '#2262CC',
           weight: 2,
           opacity: 0.6,
           fillOpacity: 0
@@ -111,7 +111,7 @@
                 });
                 layer.on('mouseout', function (e) {
                   removeLabelBold();
-                  layer.setStyle(defaultStyle); 
+                  layer.setStyle(defaultStyle);
                 });
               })(layer, feature.properties);
             }
@@ -123,7 +123,7 @@
       function getClassifiedStyle(num) {
         var color = getColor(num);
         var style = {
-          color: color, 
+          color: color,
           weight: 4,
           opacity: 0.6,
           fillOpacity: 0.65,

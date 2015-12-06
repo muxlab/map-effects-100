@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
     <title>Map Effects 100</title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
     <style>
         html, body, #map {
           height: 600px;
@@ -50,8 +50,8 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-    <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
     <script>
     $(function () {
 
@@ -63,19 +63,19 @@
       function initMap() {
         var map = L.map('map').setView([35.8, 130], 5);
 
-        L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',{
+        L.tileLayer('//{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',{
           attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
         }).addTo(map);
 
         // Two styles
         var defaultStyle = {
-          color: '#2262CC', 
+          color: '#2262CC',
           weight: 2,
           opacity: 0.6,
           fillOpacity: 0
         }
         var highlightStyle = {
-          color: '#ff6500', 
+          color: '#ff6500',
           weight: 4,
           opacity: 0.6,
           fillOpacity: 0.65,
@@ -102,7 +102,7 @@
             onEachFeature: function (feature, layer) {
               // Set the default style into layer
               layer.setStyle(defaultStyle);
-              
+
               // Set the highlight style into layer when 'mouseover'
               (function(layer, properties) {
                 // Leaflet events
@@ -119,14 +119,14 @@
                   chart.showTooltip(activeSegments); // Hack the chart.js! But we are not able to highlight the target segment in chart..
                 });
                 layer.on('mouseout', function (e) {
-                  layer.setStyle(defaultStyle); 
+                  layer.setStyle(defaultStyle);
                   chart.showTooltip([]);
                 });
 
                 // Chart.js events
                 $('canvas').on('mousemove', function (e) {
                   layer.setStyle(defaultStyle);
-                  
+
                   // Binding: Chart -> Map
                   var activePoints = chart.getSegmentsAtEvent(e);
                   if(activePoints.length > 0) {
@@ -138,7 +138,7 @@
                 });
                 $('canvas').on('click', function (e) {
                   layer.setStyle(defaultStyle);
-                  
+
                   // Binding: Chart -> Map
                   var activePoints = chart.getSegmentsAtEvent(e);
                   if(activePoints.length > 0) {
