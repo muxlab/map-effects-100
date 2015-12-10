@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
     <title>Map Effects 100</title>
     <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
     <style>
         html, body, #map {
           height: 600px;
@@ -48,7 +48,7 @@
             stroke-width: 6;
           }
         }
-        
+
         /* Marker offset */
         .eq-svg {
           margin-top: -12px;
@@ -62,8 +62,8 @@
     <div id="map"></div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
     <script>
     $(function() {
 
@@ -73,7 +73,7 @@
       function initMap() {
         var map = L.map('map').setView([36, 139], 5);
 
-        L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',{
+        L.tileLayer('//cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
           attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
         }).addTo(map);
 
