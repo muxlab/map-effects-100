@@ -123,7 +123,7 @@
 
         // Get the geojson from ArcGIS Open Data Portal by Esri Japan
         // Check it out! => http://data.esrij.com/
-        $.getJSON('http://data.esrij.com/datasets/884a76f217c543408df7bcc55c78acb1_0.geojson', function(data) {
+        $.getJSON('../data/Shizuoka_100_waterside.geojson', function(data) {
           var geojson = L.geoJson(data, {
             onEachFeature: function (feature, layer) {
               (function(layer, properties) {
