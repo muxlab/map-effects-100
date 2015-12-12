@@ -1,0 +1,43 @@
+{
+  "name": "map-effects-100",
+  "version": "0.1.0",
+  "description": "Cool tips to design UI/UX on Leaflet maps.",
+  "main": "index.html",
+  "scripts": {
+    "lint": "gulp lint",
+    "watch": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:muxlab/map-effects-100.git"
+  },
+  "keywords": [
+    "leaflet",
+    "exapmle",
+    "mapping",
+    "design",
+    "ux",
+    "data visualization"
+  ],
+  "author": "Yusuke Nunokawa <nuno0825@gmail.com> (https://ynunokawa.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muxlab/map-effects-100/issues"
+  },
+  "homepage": "https://muxlab.github.io/map-effects-100",
+  "devDependencies": {
+    "eslint": "~1.10.3",
+    "eslint-config-airbnb": "~2.0.0",
+    "gulp": "~3.9.0",
+    "gulp-eslint": "~1.1.1",
+    "gulp-plumber": "~1.0.1",
+    "node-notifier": "~4.4.0"
+  },
+  "dependencies": {
+    "chart.js": "~1.0.2",
+    "d3": "~3.5.10",
+    "jquery": "~2.1.4",
+    "jquery-ui": "~1.10.5",
+    "leaflet": "~0.7.7"
+  }
+}

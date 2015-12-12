@@ -1,0 +1,15 @@
+# Mac
+.DS_Store
+Icon
+._*
+.Spotlight-V100
+
+# Node
+node_modules
+npm-debug.log
+
+# Bower
+bower_components
+
+# Built Files
+Leaflet/dist
