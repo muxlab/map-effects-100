@@ -91,13 +91,7 @@
           // Set data for chart
           var chartData = [];
           $.each(data.features, function(i, feature) {
-            var d = {
-              value: feature.properties['POP-DENSITY'],
-              label: feature.properties['ObjName'],
-              color: '#' + Math.random().toString(16).slice(2, 8), // Get color at random
-              highlight: '#fff'
-            };
-            chartData.push(d);
+            chartData.push(getChartData(feature));
           });
           // Sort data with values
           chartData.sort(compareValueNumbers);
@@ -163,9 +157,12 @@
       }
 
       function initChart(data) {
+        var first = true;
         // create or update chart
         if( chart ) {
           chart.destroy();
+          // do not animate the Chart
+          first = false;
         }
         // Get context
         var ctx = $("#chart").get(0).getContext("2d");
@@ -177,7 +174,7 @@
           percentageInnerCutout: 50,
           animationSteps: 100,
           animationEasing: 'easeOutBounce',
-          animateRotate: true,
+          animateRotate: first,
           animateScale: false
         });
       }
@@ -191,13 +188,7 @@
         geojson.eachLayer(function(layer) {
           if (map.hasLayer(geojson)) {
             if (map.getBounds().intersects(layer.getBounds())) {
-              var d = {
-                value: layer.feature.properties['POP-DENSITY'],
-                label: layer.feature.properties['ObjName'],
-                color: '#' + Math.random().toString(16).slice(2, 8), // Get color at random
-                highlight: '#fff'
-              };
-              chartData.push(d);
+              chartData.push(getChartData(layer.feature));
             }
           }
         });
@@ -205,6 +196,16 @@
         chartData.sort(compareValueNumbers);
         initChart(chartData);
 
+      }
+
+      function getChartData(feature) {
+        var d = {
+          value: feature.properties['POP-DENSITY'],
+          label: feature.properties['ObjName'],
+          color: '#' + Math.random().toString(16).slice(2, 8), // Get color at random
+          highlight: '#fff'
+        };
+        return d;
       }
 
       initMap();
