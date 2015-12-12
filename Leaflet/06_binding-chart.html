@@ -57,11 +57,11 @@
 
       console.log('%c⚛ Map Effects 100: Hello geohacker! ⚛', 'font-family:monospace;font-size:16px;color:darkblue;');
 
-      var chart;
+      var chart, geojson, map;
 
       // Leaflet Map Init
       function initMap() {
-        var map = L.map('map').setView([35.8, 130], 5);
+        map = L.map('map').setView([35.8, 130], 5);
 
         L.tileLayer('//cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
           attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
@@ -82,6 +82,11 @@
           fillColor: '#ff6500'
         };
 
+        // Filter chart to only show features in current map bounds
+        map.on("moveend", function(e) {
+          synchChart();
+        });
+
         $.getJSON('../data/japan.geojson', function (data) {
           // Set data for chart
           var chartData = [];
@@ -98,7 +103,7 @@
           chartData.sort(compareValueNumbers);
           initChart(chartData);
 
-          var geojson = L.geoJson(data, {
+          geojson = L.geoJson(data, {
             onEachFeature: function (feature, layer) {
               // Set the default style into layer
               layer.setStyle(defaultStyle);
@@ -138,7 +143,6 @@
                 });
                 $('canvas').on('click', function (e) {
                   layer.setStyle(defaultStyle);
-
                   // Binding: Chart -> Map
                   var activePoints = chart.getSegmentsAtEvent(e);
                   if(activePoints.length > 0) {
@@ -159,6 +163,10 @@
       }
 
       function initChart(data) {
+        // create or update chart
+        if( chart ) {
+          chart.destroy();
+        }
         // Get context
         var ctx = $("#chart").get(0).getContext("2d");
         // Doughnut Chary
@@ -176,6 +184,27 @@
 
       function compareValueNumbers(a, b) {
         return (a.value - b.value) * -1;
+      }
+
+      function synchChart() {
+        var chartData =[];
+        geojson.eachLayer(function(layer) {
+          if (map.hasLayer(geojson)) {
+            if (map.getBounds().intersects(layer.getBounds())) {
+              var d = {
+                value: layer.feature.properties['POP-DENSITY'],
+                label: layer.feature.properties['ObjName'],
+                color: '#' + Math.random().toString(16).slice(2, 8), // Get color at random
+                highlight: '#fff'
+              };
+              chartData.push(d);
+            }
+          }
+        });
+        // Sort data with values
+        chartData.sort(compareValueNumbers);
+        initChart(chartData);
+
       }
 
       initMap();
