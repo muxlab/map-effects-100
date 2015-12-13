@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Map Effects 100</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+
+    <style>
+        html, body, #map {
+          height: 600px;
+          font-family: "Avenir LT W01 35 Light", "Century Gothic", Helvetica, Arial, sans-serif;
+        }
+        #title {
+          position: absolute;
+          z-index: 999;
+          top: 15px;
+          right: 25px;
+          color: #fff;
+        }
+        /* CSS3 Transition to fade-in highlight style */
+        svg.leaflet-zoom-animated > g > path {
+          transition-property: fill, fill-opacity, stroke, stroke-opacity, stroke-width;
+          transition-duration: 0.4s;
+        }
+        /* Marker offset */
+        .eq-svg {
+          margin-top: -12px;
+          margin-left: -12px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="title"><p>10. Hex-grid with Turf</p></div>
+    <div id="map"></div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+    <script src="//api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js"></script>
+
+    <script>
+    $(function() {
+
+      console.log('%c⚛ Map Effects 100: Hello geohacker! ⚛', 'font-family:monospace;font-size:16px;color:darkblue;');
+
+      // Leaflet Map Init
+      function initMap() {
+        var map = L.map('map').setView([36, 139], 5);
+
+        L.tileLayer('//cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
+          attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+        }).addTo(map);
+
+        var aggregations = [
+          {
+            aggregation: 'count',
+            inField: '',
+            outField: 'pt_count'
+          }
+        ];
+
+        var svgIcon = L.divIcon({
+          className: 'earthquakes',
+          html: '<svg class="eq-svg" width="64px" height="64px" viewBox="-20 -20 64 64"><g><circle class="circles" opacity="0.4" r="2" transform="translate(0,0)"></circle></g></svg>'
+        });
+
+        $.getJSON('../data/earthquakes.geojson', function(data) {
+          var geojson = L.geoJson(data, {
+            onEachFeature: function (feature, layer) {
+              layer.setIcon(svgIcon);
+            }
+          });
+          map.fitBounds(geojson.getBounds());
+          geojson.addTo(map);
+
+          //Generates a hexgrid within the specified bbox.
+          var b = geojson.getBounds();
+          extend = [b.getSouthWest().lng , b.getSouthWest().lat , b.getNorthEast().lng, b.getNorthEast().lat]
+          var hexgrid = turf.hexGrid(extend, 1, "kilometers");
+          var hexgrid = turf.aggregate(hexgrid, data, aggregations);
+          hexgrid.features.forEach(setStyle);
+
+          var geojson = L.geoJson(hexgrid, {
+            onEachFeature: function (feature, layer) {
+              layer.setStyle(layer.feature.properties.withCount);
+            }
+          });
+          geojson.addTo(map);
+        });
+      }
+
+      function setStyle(cell){
+          cell.properties.withCount = {};
+          var pt_count = cell.properties.pt_count;
+          var _withCount = {
+            color: '#4DFFFF',
+            weight: 0.1,
+            fill: '#4DFFFF',
+            fillOpacity: pt_count/8.5
+          };
+          cell.properties.withCount = _withCount;
+      }
+
+      initMap();
+
+    });
+    </script>
+  </body>
+</html>

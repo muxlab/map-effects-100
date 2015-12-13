@@ -1,12 +1,14 @@
-"use strict";
+'use strict';
 
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var plumber = require('gulp-plumber');
 var notifier = require('node-notifier');
+var gfi = require('gulp-file-insert');
+var processhtml = require('gulp-processhtml');
 
 gulp.task('lint', function() {
-  return gulp.src(['Leaflet/dist/*.js'])
+  return gulp.src(['src/*.js'])
     .pipe(plumber({
       errorHandler: function(error) {
         var taskName = 'eslint';
@@ -20,18 +22,31 @@ gulp.task('lint', function() {
         });
       }
     }))
-    .pipe(eslint({ useEslintrc: true }))
+    .pipe(eslint({
+      useEslintrc: true
+    }))
     .pipe(eslint.format())
     .pipe(eslint.failOnError())
     .pipe(plumber.stop());
 });
 
-gulp.task('watch',function(){
-    gulp.watch('Leaflet/dist/*.js', function(event){
-        gulp.run('lint');
-    });
+gulp.task('build', function() {
+  return gulp.src('src/01_fadein-highlight.html')
+    .pipe(gfi({
+      '/* jsFile 01 */': 'src/01_fadein-highlight.js',
+    }))
+    .pipe(processhtml())
+    .pipe(gulp.dest('./Leaflet/'));
 });
 
-gulp.task('default', ['lint'], function(){
-    gulp.run('watch');
+gulp.task('watch', function() {
+  gulp.watch('src/*.js', function(event) {
+    gulp.run('lint');
+  });
+});
+
+
+
+gulp.task('default', ['lint'], function() {
+  gulp.run('watch');
 });
