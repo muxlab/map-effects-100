@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Map Effects 100</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <style>
+        html, body, #map {
+          height: 600px;
+          font-family: "Avenir LT W01 35 Light", "Century Gothic", Helvetica, Arial, sans-serif;
+          background-color: #000;
+        }
+        #title {
+          position: absolute;
+          z-index: 999;
+          top: 15px;
+          right: 25px;
+          color: #fff;
+        }
+
+        /* CSS3 Transition & Animation for sizing svg icon */
+        .circles {
+          fill: #ff9c00;
+          transition-property: fill;
+          transition-duration: 1s;
+        }
+
+        /* Marker offset */
+        .eq-svg {
+          margin-top: -12px;
+          margin-left: -12px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="title"><p>09. Search Nearest with Turf</p></div>
+    <div id="map"></div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
+    <!-- Turf.js -->
+    <script src="//api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js"></script>
+
+    <script>
+    $(function() {
+
+      console.log('%c⚛ Map Effects 100: Hello geohacker! ⚛', 'font-family:monospace;font-size:16px;color:darkblue;');
+
+      // Leaflet Map Init
+      function initMap() {
+        var map = L.map('map').setView([36, 139], 5);
+
+        L.tileLayer('//cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
+          attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+        }).addTo(map);
+
+        $.getJSON('../data/earthquakes.geojson', function(data) {
+          var geojson = L.geoJson(data, {
+            onEachFeature: function (feature, layer) {
+              (function(layer, properties) {
+                var svgIcon = L.divIcon({
+                  className: 'earthquakes',
+                  html: '<svg class="eq-svg" width="64px" height="64px" viewBox="-20 -20 64 64"><g><circle class="circles" id="' + properties['code'] + '" opacity="0.4" r="1" transform="translate(0,0)"></circle></g></svg>'
+                });
+                layer.setIcon(svgIcon);
+              })(layer, feature.properties);
+            }
+          });
+          map.fitBounds(geojson.getBounds());
+          geojson.addTo(map);
+
+          map.on('mousemove', function (e) {
+            var point = {
+              "type": "Feature",
+              "properties": {
+                "marker-color": "#0f0"
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [e.latlng.lng, e.latlng.lat]
+              }
+            };
+
+            // Turf.nearest!
+            var nearest = turf.nearest(point, data);
+            d3.select('circle#' + nearest.properties['code'])
+              .transition()
+              .delay(0)
+              .duration(1000)
+              .attr('r', nearest.properties['mag']*2.5);
+            $('circle#' + nearest.properties['code']).css('fill', '#ff0000');
+            setTimeout(function() {
+              d3.select('circle#' + nearest.properties['code'])
+                .transition()
+                .delay(0)
+                .duration(1000)
+                .attr('r', 1);
+              $('circle#' + nearest.properties['code']).css('fill', '#ff9c00');
+            }, 1000);
+          });
+        });
+      }
+
+      initMap();
+
+    });
+    </script>
+  </body>
+</html>
