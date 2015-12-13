@@ -6,6 +6,7 @@ var plumber = require('gulp-plumber');
 var notifier = require('node-notifier');
 var gfi = require('gulp-file-insert');
 var processhtml = require('gulp-processhtml');
+var foreach = require('gulp-foreach');
 
 gulp.task('lint', function() {
   return gulp.src(['src/*.js'])
@@ -31,9 +32,13 @@ gulp.task('lint', function() {
 });
 
 gulp.task('build', function() {
-  return gulp.src('src/01_fadein-highlight.html')
-    .pipe(gfi({
-      '/* jsFile 01 */': 'src/01_fadein-highlight.js',
+  return gulp.src('src/*.html')
+    .pipe(foreach(function(stream, file) {
+      return stream
+        .pipe(gfi({
+          '/* jsFile 01 */': 'src/01_fadein-highlight.js',
+          '/* jsFile 02 */': 'src/02_classified-highlightcolor.js'
+        }))
     }))
     .pipe(processhtml())
     .pipe(gulp.dest('./Leaflet/'));
@@ -44,8 +49,6 @@ gulp.task('watch', function() {
     gulp.run('lint');
   });
 });
-
-
 
 gulp.task('default', ['lint'], function() {
   gulp.run('watch');
