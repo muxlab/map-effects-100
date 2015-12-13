@@ -20,9 +20,9 @@
 
 1. [Fork and clone](https://help.github.com/articles/fork-a-repo) Map Effects 100
 * `cd` into the `map-effects-100` folder
-* Install the dependencies on your app with `npm install --save` (option)
-* Create the `dist` folder into the `Leaflet` folder
-* Create new html file into the `Leaflet` and new js file into the `Leaflet/dist` to work the eslint automatically with [gulp](https://github.com/muxlab/map-effects-100/blob/gh-pages/gulpfile.js)
-* Run `gulp watch` from the command line. This will check your code into the `Leaflet/dist` with [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
-* Take your js file into `<script>` in html file after finishing coding
+* Install the dependencies on your app with `npm install`
+* Create new html and js files into the `src` to work the eslint automatically with [gulp](https://github.com/muxlab/map-effects-100/blob/gh-pages/gulpfile.js)
+* Run `gulp watch` from the command line. This will check your code into the `src` with [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
+* add you js file in gulp.js (section to automate with file name)
+* After finishing coding, run `gulp build`
 * Make your changes and create a [pull request](https://help.github.com/articles/creating-a-pull-request)
