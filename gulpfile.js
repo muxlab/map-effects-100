@@ -1,5 +1,3 @@
-'use strict';
-
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var plumber = require('gulp-plumber');
@@ -7,6 +5,7 @@ var notifier = require('node-notifier');
 var gfi = require('gulp-file-insert');
 var processhtml = require('gulp-processhtml');
 var foreach = require('gulp-foreach');
+var File = require('vinyl');
 
 gulp.task('lint', function() {
   return gulp.src(['src/*.js'])
@@ -35,14 +34,26 @@ gulp.task('build', function() {
   return gulp.src('src/*.html')
     .pipe(foreach(function(stream, file) {
       return stream
-        .pipe(gfi({
-          '/* jsFile 01 */': 'src/01_fadein-highlight.js',
-          '/* jsFile 02 */': 'src/02_classified-highlightcolor.js'
-        }))
+        .pipe(gfi(returnGFI(file)));
     }))
     .pipe(processhtml())
     .pipe(gulp.dest('./Leaflet/'));
 });
+
+function returnGFI(filedata) {
+  var file = new File(filedata);
+  var tag = '/* jsFile ' + file.stem.substr(0, 2) + ' */';
+  var jsFile = 'src/' + file.stem + '.js';
+  var obj = {};
+  Object.defineProperty(obj, tag, {
+    value: jsFile,
+    writable: true,
+    enumerable: true,
+    configurable: true
+  });
+  console.log('Proceeding with ' + tag + ' : ' + jsFile);
+  return obj;
+}
 
 gulp.task('watch', function() {
   gulp.watch('src/*.js', function(event) {

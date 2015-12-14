@@ -34,6 +34,7 @@
     "gulp-foreach": "^0.1.0",
     "gulp-plumber": "~1.0.1",
     "gulp-processhtml": "^1.1.0",
-    "node-notifier": "~4.4.0"
+    "node-notifier": "~4.4.0",
+    "vinyl": "^1.1.0"
   }
 }
