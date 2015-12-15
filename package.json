@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "lint": "gulp lint",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
