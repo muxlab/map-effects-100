@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Map Effects 100</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <style>
+        html, body, #map {
+          height: 600px;
+          font-family: "Avenir LT W01 35 Light", "Century Gothic", "Meiryo" Helvetica, Arial, sans-serif;
+          /* free image of the paper under Creative Commons (Attribution 3.0) */
+          /* from http://freedesignfile.com/40199-empty-paper-backgrounds-art-vector-02/ */
+          background: url("../data/img/zine/bg.jpg") no-repeat fixed center;
+          background-size: contain;
+        }
+        @media (max-width: 620px) {
+          html, body {
+            background-size: cover;
+          }
+        }
+        @media (min-width: 620px) {
+          html, body {
+            background-size: contain;
+          }
+        }
+        h1 {
+          font-size: 32pt;
+        }
+        #title {
+          position: absolute;
+          z-index: 999;
+          top: 15px;
+          right: 45px;
+          color: #333;
+        }
+        #zine-title {
+          position: absolute;
+          top: 210px;
+          width: 100%;
+          text-align: center;
+          z-index: 999;
+        }
+        #copyright {
+          position: absolute;
+          top: 630px;
+          width: 100%;
+          text-align: center;
+          font-size: 8pt;
+          z-index: 999;
+        }
+        #map {
+          top: 300px;
+          width: 300px;
+          height: 300px;
+          margin: 0 auto;
+          text-align: center;
+        }
+        .leaflet-tile-pane {
+          width: 80%;  
+          margin: 0 auto;  
+        }
+        .leaflet-map-pane {
+          transition: opacity 0.5s linear;
+        }
+
+        #picts {
+          margin: 0;
+          height: 100%;
+          width: 100%;
+        }
+        #picts > img {
+          cursor: pointer;
+          visiblity: hidden;
+          opacity: 0;
+          transition: visibility 0.5s, opacity 0.5s linear;
+          position: relative;
+          z-index: 9999;
+          height: 100%;
+          width: 100%;
+        }
+
+        /* Marker offset */
+        .pt-svg {
+          margin-top: -24px;
+          margin-left: -24px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="title"><p>17. Interactive Zine for Map</p></div>
+    <div id="zine-title"><h1>ZINE FOR MAP</h1></div>
+    <div id="copyright"><a id="home-link" target="_top" href="../">Map tiles</a> by <a target="_top" href="http://stamen.com">Stamen Design</a>, <br>Data by <a target="_top" href="http://openstreetmap.org">OpenStreetMap</a>, under <a target="_top" href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>. <br>Pictures by <a target="_top" href="http://keiopicnicclub.github.io/">KEIO Picnic Club</a>.</div>
+    <div id="map">
+      <div id="picts"></div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
+    <script src="dist/17_interactive-zine-for-map.js"></script>
+  </body>
+</html>
