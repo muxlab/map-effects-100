@@ -18,7 +18,7 @@ $(function () {
       weight: 2,
       opacity: 0.6,
       fillOpacity: 0
-    }
+    };
     var highlightStyle = {
       color: '#ff6500',
       weight: 4,

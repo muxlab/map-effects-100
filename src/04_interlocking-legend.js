@@ -42,7 +42,7 @@ $(function() {
       weight: 2,
       opacity: 0.6,
       fillOpacity: 0
-    }
+    };
 
     $.getJSON('../data/japan.geojson', function(data) {
       var geojson = L.geoJson(data, {
