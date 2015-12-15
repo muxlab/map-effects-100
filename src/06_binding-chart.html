@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Map Effects 100</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <style>
+        html, body, #map {
+          height: 600px;
+          font-family: "Avenir LT W01 35 Light", "Century Gothic", Helvetica, Arial, sans-serif;
+        }
+        #title {
+          position: absolute;
+          z-index: 999;
+          top: 15px;
+          right: 25px;
+          color: #fff;
+        }
+
+        /* CSS3 Transition to fade-in highlight style */
+        svg.leaflet-zoom-animated > g > path {
+          transition-property: fill, fill-opacity, stroke, stroke-opacity, stroke-width;
+          transition-duration: 0.4s;
+        }
+
+        #chartDiv {
+          position: absolute;
+          z-index: 999;
+          bottom: 20px;
+          left: 20px;
+          color: #fff;
+          padding: 20px;
+          text-align: left;
+          font-size: 16px;
+          opacity: 0.8;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="title"><p>06. Binding Chart to Map Operations</p></div>
+    <div id="map">
+      <div id="chartDiv">
+        <i>Population Density</i><br>
+        <canvas id="chart" width="400" height="400"></canvas>
+      </div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
+    <!-- build:remove -->
+    <script src="06_binding-chart.js"></script>
+    <!-- /build -->
+<script>
+/* jsFile 06 */</script>
+  </body>
+</html>

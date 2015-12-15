@@ -60,76 +60,78 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+<script>
+$(function() {
 
-    <script>
-    $(function() {
+  console.log('%c⚛ Map Effects 100: Hello geohacker! ⚛', 'font-family:monospace;font-size:16px;color:darkblue;');
 
-      console.log('%c⚛ Map Effects 100: Hello geohacker! ⚛', 'font-family:monospace;font-size:16px;color:darkblue;');
+  // Leaflet Map Init
+  function initMap() {
+    var map = L.map('map').setView([36, 139], 5);
 
-      // Leaflet Map Init
-      function initMap() {
-        var map = L.map('map').setView([36, 139], 5);
+    L.tileLayer('//cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
+      attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+    }).addTo(map);
 
-        L.tileLayer('//cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
-          attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-        }).addTo(map);
+    // Two styles
+    var defaultStyle = {
+      color: '#2262CC',
+      weight: 2,
+      opacity: 0.6,
+      fillOpacity: 0
+    };
+    var highlightStyle = {
+      color: '#ff6500',
+      weight: 4,
+      opacity: 0.6,
+      fillOpacity: 0.65,
+      fillColor: '#ff6500'
+    };
 
-        // Two styles
-        var defaultStyle = {
-          color: '#2262CC',
-          weight: 2,
-          opacity: 0.6,
-          fillOpacity: 0
-        }
-        var highlightStyle = {
-          color: '#ff6500',
-          weight: 4,
-          opacity: 0.6,
-          fillOpacity: 0.65,
-          fillColor: '#ff6500'
-        };
+    $.getJSON('../data/japan.geojson', function(data) {
+      var geojson = L.geoJson(data, {
+        onEachFeature: function(feature, layer) {
+          // Set the default style into layer
+          layer.setStyle(defaultStyle);
 
-        $.getJSON('../data/japan.geojson', function(data) {
-          var geojson = L.geoJson(data, {
-            onEachFeature: function (feature, layer) {
-              // Set the default style into layer
+          // Set the highlight style into layer when 'mouseover'
+          (function(layer, properties) {
+            layer.on('mouseover', function(e) {
+              layer.setStyle(highlightStyle);
+
+              // Create popup
+              var popup = $('<div></div>', {
+                id: 'popup-' + properties['JIS-CODE'],
+                class: 'rising-popup'
+              });
+              // Content into popup
+              var content = $("<div></div>", {
+                html: '<b>' + properties['ObjName'] + '</b><br>Population Density: ' + properties['POP-DENSITY'],
+                css: {
+                  fontSize: '16px',
+                  marginBottom: '3px'
+                }
+              }).appendTo(popup);
+              // Popup into map
+              popup.appendTo('#map');
+            });
+            layer.on('mouseout', function(e) {
               layer.setStyle(defaultStyle);
 
-              // Set the highlight style into layer when 'mouseover'
-              (function(layer, properties) {
-                layer.on('mouseover', function (e) {
-                  layer.setStyle(highlightStyle);
-
-                  // Create popup
-                  var popup = $('<div></div>', {
-                    id: 'popup-' + properties['JIS-CODE'],
-                    class: 'rising-popup'
-                  });
-                  // Content into popup
-                  var content = $("<div></div>", {
-                    html: '<b>' + properties['ObjName'] + '</b><br>Population Density: ' + properties['POP-DENSITY'],
-                    css: {fontSize: '16px', marginBottom: '3px'}
-                  }).appendTo(popup);
-                  // Popup into map
-                  popup.appendTo('#map');
-                });
-                layer.on('mouseout', function (e) {
-                  layer.setStyle(defaultStyle);
-
-                  // Remove popup
-                  $('.rising-popup').remove();
-                });
-              })(layer, feature.properties);
-            }
-          });
-          map.fitBounds(geojson.getBounds());
-          geojson.addTo(map);
-        });
-      }
-
-      initMap();
-
+              // Remove popup
+              $('.rising-popup').remove();
+            });
+          })(layer, feature.properties);
+        }
+      });
+      map.fitBounds(geojson.getBounds());
+      geojson.addTo(map);
     });
-    </script>
+  }
+
+  initMap();
+
+});
+</script>
   </body>
 </html>

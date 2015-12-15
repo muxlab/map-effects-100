@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Map Effects 100</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <style>
+        html, body, #map {
+          height: 600px;
+          font-family: "Avenir LT W01 35 Light", "Century Gothic", "Meiryo" Helvetica, Arial, sans-serif;
+        }
+        p.photo-text {
+          font-size: 9pt;
+        }
+        #title {
+          position: absolute;
+          z-index: 999;
+          top: 15px;
+          right: 45px;
+          color: #fff;
+        }
+        #bg {
+          position: absolute;
+          z-index: 99;
+          top: 0;
+          right: 0;
+          margin: 8px;
+          color: #fff;
+          background: rgba(0,0,0, 0.7); /* to apply opacity background only. */
+        }
+        @media (max-width: 600px) {
+          #map {
+            height: 300px;
+          }
+          #bg {
+            height: 300px;
+            width: 250px;
+          }
+          #photos {
+            margin-top: 70px;
+            height: 230px;
+          }
+          .photo-container {
+            height: 140%;
+          }
+        }
+        @media (min-width: 600px) {
+          #map {
+            height: 600px;
+          }
+          #bg {
+            height: 600px;
+            width: 450px;
+          }
+          #photos {
+            margin-top: 70px;
+            height: 530px;
+          }
+          .photo-container {
+            height: 90%;
+          }
+        }
+        #photos {
+          width: 100%;
+          overflow-y: scroll;
+        }
+        .photo-container {
+          margin: 50px 0 0 0;
+          text-align: center;
+        }
+        .photo-text {
+          margin: 20px;
+        }
+
+        /* CSS3 Transition for sizing svg icon */
+        div.svg-icon > svg > path {
+          transition-property: stroke, stroke-width;
+          transition-duration: 1s;
+        }
+
+        /* Marker offset */
+        .mizube-svg {
+          margin-top: -12px;
+          margin-left: -12px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="title"><p>12. Map Driven Container Scroll Navigation</p></div>
+    <div id="bg">
+      <div id="photos"></div>
+    </div>
+    <div id="map"></div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
+    <!-- build:remove -->
+    <script src="12_map-driven-scroll-navigation.js"></script>
+    <!-- /build -->
+<script>
+/* jsFile 12 */</script>
+  </body>
+</html>

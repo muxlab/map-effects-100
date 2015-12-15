@@ -1,45 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
-    <title>Map Effects 100</title>
-    <link rel="shortcut icon" href="../img/favicon.ico">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
-    <style>
-        html, body, #map {
-          height: 600px;
-          font-family: "Avenir LT W01 35 Light", "Century Gothic", Helvetica, Arial, sans-serif;
-          background-color: #000;
-        }
-        #title {
-          position: absolute;
-          z-index: 999;
-          top: 15px;
-          right: 25px;
-          color: #fff;
-        }
-
-        /* CSS3 to set svg style */
-        div.leaflet-overlay-pane > svg > path {
-          stroke-opacity: 0.5;
-          stroke-width: 1;
-        }
-    </style>
-  </head>
-
-  <body>
-    <div id="title"><p>07. Raphael Animation</p></div>
-    <div id="map"></div>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="//d3js.org/d3.v3.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
-
-    <!-- Raphael Layer -->
-    <script src="../lib/leaflet.RaphaelLayer/dist/rlayer.js"></script>
-<script>
 $(function() {
 
   console.log('%c⚛ Map Effects 100: Hello geohacker! ⚛', 'font-family:monospace;font-size:16px;color:darkblue;');
@@ -87,6 +45,3 @@ $(function() {
   initMap();
 
 });
-</script>
-  </body>
-</html>
