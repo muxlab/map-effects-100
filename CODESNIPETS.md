@@ -556,3 +556,21 @@ var content = '<div class="time-into-popup"><div class="time"><div class="date">
 var pictures = L.marker(val.location).addTo(map)
   .bindPopup(content);
 ```
+* [17_map-on-video.html](https://github.com/muxlab/map-effects-100/blob/gh-pages/Leaflet/17_map-on-video.html)
+```css
+#bg {
+  height: 750px;
+  position: absolute;
+}
+#video {
+  max-height: 100%;
+  width: auto;
+  transform: translateX(0px);
+}
+#map {
+  opacity: 0.7;
+}
+.leaflet-container {
+  background: rgba(0,0,0,0);
+}
+```
