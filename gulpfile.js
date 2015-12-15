@@ -7,10 +7,25 @@ var processhtml = require('gulp-processhtml');
 var foreach = require('gulp-foreach');
 var File = require('vinyl');
 
-gulp.task('lint', function() {
+function returnGFI(filedata) {
+  var file = new File(filedata);
+  var tag = '/* jsFile ' + file.stem.substr(0, 2) + ' */';
+  var jsFile = 'src/' + file.stem + '.js';
+  var obj = {};
+  Object.defineProperty(obj, tag, {
+    value: jsFile,
+    writable: true,
+    enumerable: true,
+    configurable: true
+  });
+  console.log('Processing ' + tag + ' : ' + jsFile);
+  return obj;
+}
+
+gulp.task('lint', function () {
   return gulp.src(['src/*.js'])
     .pipe(plumber({
-      errorHandler: function(error) {
+      errorHandler: function (error) {
         var taskName = 'eslint';
         var title = '[task]' + taskName + ' ' + error.plugin;
         var errorMsg = 'error: ' + error.message;
@@ -30,9 +45,9 @@ gulp.task('lint', function() {
     .pipe(plumber.stop());
 });
 
-gulp.task('build', function() {
+gulp.task('build', function () {
   return gulp.src('src/*.html')
-    .pipe(foreach(function(stream, file) {
+    .pipe(foreach(function (stream, file) {
       return stream
         .pipe(gfi(returnGFI(file)));
     }))
@@ -40,27 +55,12 @@ gulp.task('build', function() {
     .pipe(gulp.dest('./Leaflet/'));
 });
 
-function returnGFI(filedata) {
-  var file = new File(filedata);
-  var tag = '/* jsFile ' + file.stem.substr(0, 2) + ' */';
-  var jsFile = 'src/' + file.stem + '.js';
-  var obj = {};
-  Object.defineProperty(obj, tag, {
-    value: jsFile,
-    writable: true,
-    enumerable: true,
-    configurable: true
-  });
-  console.log('Proceeding with ' + tag + ' : ' + jsFile);
-  return obj;
-}
-
-gulp.task('watch', function() {
-  gulp.watch('src/*.js', function(event) {
+gulp.task('watch', function () {
+  gulp.watch('src/*.js', function () {
     gulp.run('lint');
   });
 });
 
-gulp.task('default', ['lint'], function() {
+gulp.task('default', ['lint'], function () {
   gulp.run('watch');
 });
