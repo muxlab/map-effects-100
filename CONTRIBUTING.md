@@ -22,7 +22,24 @@
 * `cd` into the `map-effects-100` folder
 * Install the dependencies on your app with `npm install`
 * Create new html and js files into the `src` to work the eslint automatically with [gulp](https://github.com/muxlab/map-effects-100/blob/gh-pages/gulpfile.js)
+  * including js file in html file:
+      ```html    
+      <!-- build:remove -->
+      <script src="18_interactive-zine-for-map.js"></script>
+      <!-- /build -->
+      <script>/* jsFile 18 */</script>
+      ```
+
 * Run `gulp watch` from the command line. This will check your code into the `src` with [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
-* add you js file in gulp.js (section to automate with file name)
+* add your new file in [index.html](index.html)
+  ```js
+  var infos = [
+  {
+    title: '1. Fade-in Highlight Style',
+    filename: '01_fadein-highlight.html',
+    imgUrl: 'assets/img/01.png'
+  }
+  ```
+
 * After finishing coding, run `gulp build`
 * Make your changes and create a [pull request](https://help.github.com/articles/creating-a-pull-request)
