@@ -1,6 +1,6 @@
 html body {
   background: url("img/bg.png") repeat;
-  font-family: "Avenir LT W01 35 Light", "Century Gothic", "Meiryo" Helvetica, Arial, sans-serif;
+  font-family: "Avenir LT W01 35 Light", "Century Gothic", "Meiryo", Helvetica, Arial, sans-serif;
 }
 
 #title {
