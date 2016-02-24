@@ -30,7 +30,7 @@
           $.each(data.data, function (index, val) {
             var pictures = L.marker(val.location).setIcon(icons[index]).addTo(map);
 
-            $('#picts').append($('<img>').attr({ id: 'pict' + index, src: val.images.standard_resolution.url, class: 'pict' }).css({ top: -305 * index + 'px' }));
+            $('#picts').append($('<img>').attr({ id: 'pict' + index, src: val.images.standard_resolution.url, class: 'pict' }).css({ top: -225 * index + 'px' }));
             pictures.on('click', function () {
               var id = 'pict' + index;
               $('#' + id).css({ visibility: 'visible', opacity: 1 });
