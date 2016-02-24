@@ -2,7 +2,6 @@
       console.log('%c⚛ Map Effects 100: Hello geohacker! ⚛', 'font-family:monospace;font-size:16px;color:darkblue;');
 
       $('#map').on('click', function (e) {
-        console.log(e);
         $('img.pict').css({ visibility: 'hidden', opacity: 0 });
         $('.leaflet-map-pane').css({ opacity: 1 });
       });
@@ -30,7 +29,7 @@
           $.each(data.data, function (index, val) {
             var pictures = L.marker(val.location).setIcon(icons[index]).addTo(map);
 
-            $('#picts').append($('<img>').attr({ id: 'pict' + index, src: val.images.standard_resolution.url, class: 'pict' }).css({ top: -225 * index + 'px' }));
+            $('#picts').append($('<img>').attr({ id: 'pict' + index, src: val.images.standard_resolution.url, class: 'pict' }).css({ top: ($('#map').height() + 5) * -1 * index + 'px' }));
             pictures.on('click', function () {
               var id = 'pict' + index;
               $('#' + id).css({ visibility: 'visible', opacity: 1 });

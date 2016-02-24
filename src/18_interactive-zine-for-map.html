@@ -15,12 +15,67 @@
           background: url("../data/img/zine/bg.jpg") no-repeat fixed center;
           background-size: contain;
         }
-        html, body {
-          background-size: 488px 630px;
-          background-position: center 30px;
+        @media (max-height: 600px) {
+          html, body {
+            background-size: 366px 472px;
+            background-position: center 30px;
+          }
+          h1 {
+            font-size: 18pt;
+          }
+          #zine-title {
+            position: absolute;
+            top: 160px;
+            width: 100%;
+            text-align: center;
+            z-index: 999;
+          }
+          #map {
+            top: 210px;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto;
+            text-align: center;
+          }
+          #copyright {
+            position: absolute;
+            top: 390px;
+            width: 100%;
+            text-align: center;
+            font-size: 6pt;
+            z-index: 999;
+          }
         }
-        h1 {
-          font-size: 24pt;
+        @media (min-height: 600px) {
+          html, body {
+            background-size: 488px 630px;
+            background-position: center 30px;
+          }
+          h1 {
+            font-size: 24pt;
+          }
+          #zine-title {
+            position: absolute;
+            top: 200px;
+            width: 100%;
+            text-align: center;
+            z-index: 999;
+          }
+          #map {
+            top: 270px;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto;
+            text-align: center;
+          }
+          #copyright {
+            position: absolute;
+            top: 510px;
+            width: 100%;
+            text-align: center;
+            font-size: 7pt;
+            z-index: 999;
+          }
         }
         #title {
           position: absolute;
@@ -28,28 +83,6 @@
           top: 15px;
           right: 45px;
           color: #333;
-        }
-        #zine-title {
-          position: absolute;
-          top: 200px;
-          width: 100%;
-          text-align: center;
-          z-index: 999;
-        }
-        #copyright {
-          position: absolute;
-          top: 510px;
-          width: 100%;
-          text-align: center;
-          font-size: 7pt;
-          z-index: 999;
-        }
-        #map {
-          top: 270px;
-          width: 220px;
-          height: 220px;
-          margin: 0 auto;
-          text-align: center;
         }
         .leaflet-tile-pane {
           width: 80%;
