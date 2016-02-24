@@ -574,3 +574,24 @@ var pictures = L.marker(val.location).addTo(map)
   background: rgba(0,0,0,0);
 }
 ```
+* [18_interactive-zine-for-map.html)](http://muxlab.github.io/map-effects-100/Leaflet/18_interactive-zine-for-map.html)
+```css
+#picts > img {
+  cursor: pointer;
+  visiblity: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s linear;
+  position: relative;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
+}
+```
+```javascript
+$('#picts').append($('<img>').attr({ id: 'pict' + index, src: val.images.standard_resolution.url, class: 'pict' }).css({ top: ($('#map').height() + 5) * -1 * index + 'px' }));
+pictures.on('click', function () {
+  var id = 'pict' + index;
+  $('#' + id).css({ visibility: 'visible', opacity: 1 });
+  $('.leaflet-map-pane').css({ opacity: 0 });
+});
+```
