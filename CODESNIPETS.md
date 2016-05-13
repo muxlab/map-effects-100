@@ -595,3 +595,23 @@ pictures.on('click', function () {
   $('.leaflet-map-pane').css({ opacity: 0 });
 });
 ```
+* [19_transforming-marker-into-frame.html)](http://muxlab.github.io/map-effects-100/Leaflet/19_transforming-marker-into-frame.html)
+```javascript
+pictures.on('click', function (e) {
+  map.panTo(e.target._latlng);
+  if (selectedPicture !== undefined) {
+    selectedPicture.target._icon.style.width = '60px';
+    selectedPicture.target._icon.style.height = '60px';
+    selectedPicture.target._icon.style.marginLeft = '-30px';
+    selectedPicture.target._icon.style.marginTop = '-30px';
+    selectedPicture.target._icon.style.zIndex = originalZIndex;
+  }
+  selectedPicture = e;
+  originalZIndex = e.target._icon.style.zIndex;
+  e.target._icon.style.width = '450px';
+  e.target._icon.style.height = '450px';
+  e.target._icon.style.marginLeft = '-225px';
+  e.target._icon.style.marginTop = '-225px';
+  e.target._icon.style.zIndex = '100000';
+});
+```
