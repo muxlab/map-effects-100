@@ -40,6 +40,7 @@ bower install map-effects-100
 * [Responsive Popup with Picture](http://muxlab.github.io/map-effects-100/Leaflet/16_responsive-popup.html)
 * [Map on Video](http://muxlab.github.io/map-effects-100/Leaflet/17_map-on-video.html)
 * [ZINE for Map](http://muxlab.github.io/map-effects-100/Leaflet/18_interactive-zine-for-map.html)
+* [Transforming Marker into Picure Frame](http://muxlab.github.io/map-effects-100/Leaflet/19_transforming-marker-into-frame.html)
 
 Key code snipets of each file is [here](CODESNIPETS.md)!
 
