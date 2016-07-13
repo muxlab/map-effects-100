@@ -1,5 +1,4 @@
-$(function() {
-
+$(function () {
   console.log('%c⚛ Map Effects 100: Hello geohacker! ⚛', 'font-family:monospace;font-size:16px;color:darkblue;');
 
   // Leaflet Map Init
@@ -22,17 +21,17 @@ $(function() {
       fillColor: '#ff6500'
     };
 
-    $.getJSON('../data/japan.geojson', function(data) {
+    $.getJSON('../data/japan.geojson', function (data) {
       var geojson = L.geoJson(data, {
         onEachFeature: function (feature, layer) {
           // Set the default style into layer
           layer.setStyle(defaultStyle);
 
-          (function(layer, properties) {
-            layer.on('mouseover', function (e) {
+          (function () {
+            layer.on('mouseover', function () {
               layer.setStyle(highlightStyle);
             });
-            layer.on('mouseout', function (e) {
+            layer.on('mouseout', function () {
               layer.setStyle(defaultStyle);
             });
           })(layer, feature.properties);
@@ -43,12 +42,11 @@ $(function() {
 
       // Border line generation
       d3.selectAll('.leaflet-zoom-animated').selectAll('g').selectAll('path').transition().delay(300).duration(7000).style('stroke-dashoffset', 0);
-      setTimeout(function() {
+      setTimeout(function () {
         d3.selectAll('.leaflet-zoom-animated').selectAll('g').selectAll('path').style('stroke-dasharray', 0);
       }, 3700);
     });
   }
 
   initMap();
-
 });

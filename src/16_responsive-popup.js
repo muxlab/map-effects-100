@@ -1,5 +1,4 @@
-$(function() {
-
+$(function () {
   console.log('%c⚛ Map Effects 100: Hello geohacker! ⚛', 'font-family:monospace;font-size:16px;color:darkblue;');
 
   // Leaflet Map Init
@@ -13,8 +12,8 @@ $(function() {
       id: 'osm'
     }).addTo(map);
 
-    $.getJSON('../data/dummy-picts-rest.json', function(data) {
-      $.each(data.data, function(i, val) {
+    $.getJSON('../data/dummy-picts-rest.json', function (data) {
+      $.each(data.data, function (i, val) {
         var date = new Date(Number(val.created_time)).getDate();
         var m = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
         var month = m[new Date(Number(val.created_time)).getMonth()];
@@ -22,17 +21,11 @@ $(function() {
         var content = '<div class="time-into-popup"><div class="time"><div class="date">' + date + '</div><div class="day">' + month + '</div></div></div>'
          + '<div class="pict-into-popup"><img class="pict" src="' + val.images.standard_resolution.url + '"></div>'
          + '<div class="comment-into-popup">' + val.comment + '</div>'
-         + '<div class="likes-into-popup"><span class="likes-count"><i class="fa fa-heart likes-icon"></i>' + val.likes + '</span></div>'
-        var pictures = L.marker(val.location).addTo(map)
-          .bindPopup(content);
+         + '<div class="likes-into-popup"><span class="likes-count"><i class="fa fa-heart likes-icon"></i>' + val.likes + '</span></div>';
+        L.marker(val.location).addTo(map).bindPopup(content);
       });
     });
   }
 
-  function getDay() {
-
-  }
-
   initMap();
-
 });

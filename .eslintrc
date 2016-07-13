@@ -1,7 +1,10 @@
 {
   "globals": {
     "L": true,
-    "$": true
+    "$": true,
+    "d3": true,
+    "R": ture,
+    "turf": true
   },
   "extends": "airbnb/legacy",
   "rules": {
