@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Map Effects 100</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>
+        html, body, #map {
+          height: 100%;
+          font-family: "Avenir LT W01 35 Light", "Century Gothic", Helvetica, Arial, sans-serif;
+          background: #000;
+        }
+        #title {
+          position: absolute;
+          z-index: 999;
+          top: 15px;
+          right: 25px;
+          color: #ccc;
+        }
+
+        .leaflet-container .leaflet-zoom-animated {
+          background: rgba(0,0,0,0);
+        }
+
+        .leaflet-popup {
+          transition: all 1s;
+        }
+        .leaflet-popup:hover > div.leaflet-popup-content-wrapper {
+          animation: bound 1s 1;
+          -webkit-animation: bound 1s 1;
+          background: #ff1ec8;
+        }
+        .leaflet-popup:hover > div.leaflet-popup-tip-container > div.leaflet-popup-tip {
+          background: #ff1ec8;
+        }
+        .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+          background: #1ec8ff;
+          transition: all 1s;
+        }
+        .leaflet-container a.leaflet-popup-close-button {
+          display: none;
+        }
+        .leaflet-popup-content-wrapper {
+          text-align: center;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        .leaflet-popup-content {
+          color: #fff;
+          font-size: 3em;
+          font-family: "HiraMinPro-W6", sans-serif;
+        }
+
+        .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+          box-shadow: 0 0 0 rgba(0,0,0,0);
+        }
+
+        @keyframes bound {
+          50% {
+            transform: scaleY(1.5);
+          }
+          55% {
+            transform: scaleX(1.2);
+          }
+          65% {
+            transform: scaleY(1.1);
+          }
+          75% {
+            transform: scaleX(1.1);
+          }
+          85% {
+            transform: scaleY(1.05);
+          }
+          95% {
+            transform: scaleX(1.05);
+          }
+        }
+        @-webkit-keyframes bound {
+          0% {
+            transform: scaleX(1.2);
+          }
+          40% {
+            transform: scaleY(1.2);
+          }
+          65% {
+            transform: scaleX(1.1);
+          }
+          80% {
+            transform: scaleY(1.1);
+          }
+          90% {
+            transform: scaleX(1.05);
+          }
+          95% {
+            transform: scaleY(1.05);
+          }
+        }
+
+        @keyframes bound-tip {
+          0% {
+            transform: scaleX(1.2);
+          }
+          40% {
+            transform: scaleY(1.2);
+          }
+          65% {
+            transform: scaleX(1.1);
+          }
+          80% {
+            transform: scaleY(1.1);
+          }
+          90% {
+            transform: scaleX(1.05);
+          }
+          95% {
+            transform: scaleY(1.05);
+          }
+        }
+        @-webkit-keyframes bound-tip {
+          0% {
+            transform: scaleX(1.2);
+          }
+          40% {
+            transform: scaleY(1.2);
+          }
+          65% {
+            transform: scaleX(1.1);
+          }
+          80% {
+            transform: scaleY(1.1);
+          }
+          90% {
+            transform: scaleX(1.05);
+          }
+          95% {
+            transform: scaleY(1.05);
+          }
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="title"><p>20. Bouncing Popup</p></div>
+    <div id="map"></div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
+    <!-- Vector Icon -->
+    <script src="../lib/Leaflet.VectorIcon/L.VectorIcon.js"></script>
+
+    <!-- build:remove -->
+    <script src="20_bouncing-popup.js"></script>
+    <!-- /build -->
+<script>
+/* jsFile 20 */</script>
+  </body>
+</html>

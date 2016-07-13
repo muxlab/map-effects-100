@@ -595,7 +595,7 @@ pictures.on('click', function () {
   $('.leaflet-map-pane').css({ opacity: 0 });
 });
 ```
-* [19_transforming-marker-into-frame.html)](http://muxlab.github.io/map-effects-100/Leaflet/19_transforming-marker-into-frame.html)
+* [19_transforming-marker-into-frame.html](http://muxlab.github.io/map-effects-100/Leaflet/19_transforming-marker-into-frame.html)
 ```javascript
 pictures.on('click', function (e) {
   map.panTo(e.target._latlng);
@@ -614,4 +614,27 @@ pictures.on('click', function (e) {
   e.target._icon.style.marginTop = '-225px';
   e.target._icon.style.zIndex = '100000';
 });
+```
+* [20_bouncing-popup.html](http://muxlab.github.io/map-effects-100/Leaflet/20_bouncing-popup.html)
+```css
+@keyframes bound {
+  50% {
+    transform: scaleY(1.5);
+  }
+  55% {
+    transform: scaleX(1.2);
+  }
+  65% {
+    transform: scaleY(1.1);
+  }
+  75% {
+    transform: scaleX(1.1);
+  }
+  85% {
+    transform: scaleY(1.05);
+  }
+  95% {
+    transform: scaleX(1.05);
+  }
+}
 ```
