@@ -42,6 +42,7 @@ bower install map-effects-100
 * [ZINE for Map](http://muxlab.github.io/map-effects-100/Leaflet/18_interactive-zine-for-map.html)
 * [Transforming Marker into Picure Frame](http://muxlab.github.io/map-effects-100/Leaflet/19_transforming-marker-into-frame.html)
 * [Bouncing Popup](http://muxlab.github.io/map-effects-100/Leaflet/20_bouncing-popup.html)
+* [Blurred Background](http://muxlab.github.io/map-effects-100/Leaflet/21_blurred-background.html)
 
 Key code snipets of each file is [here](CODESNIPETS.md)!
 
@@ -61,6 +62,7 @@ __CSS__
 
 __Leaflet Plugin__
 * [Leaflet.RaphaelLayer](http://dynmeth.github.io/RaphaelLayer/)
+* [Leaflet.VectorIcon](https://github.com/muxlab/Leaflet.VectorIcon)
 
 ## Contribution
 

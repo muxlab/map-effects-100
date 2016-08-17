@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Map Effects 100</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>
+    html, body, #map {
+      height: 100%;
+      font-family: "Avenir LT W01 35 Light", "Century Gothic", "Meiryo", Helvetica, Arial, sans-serif;
+    }
+    #title {
+      position: absolute;
+      z-index: 999;
+      top: 15px;
+      right: 45px;
+      color: #333;
+    }
+
+    /* Custom icon style */
+    .leaflet-avator-icon {
+      border: 4px #fff solid; /* Inner border */
+      border-radius: 40px; /* Making round */
+      -webkit-border-radius: 40px;
+      box-shadow: 0 0 0 2px #00D0CE, 0 8px 5px rgba(0,0,0,0.4); /* Outer border and shadow */
+    }
+
+    /* Custom Popup */
+    .leaflet-popup-content {
+      margin: 0;
+      width: 90px !important;
+      height: 90px !important;
+    }
+    .leaflet-popup-content > img {
+      border-radius: 90px;
+      -webkit-border-radius: 90px;
+    }
+    .leaflet-popup-content-wrapper {
+      border: 4px #fff solid;
+      border-radius: 90px;
+      -webkit-border-radius: 90px;
+      box-shadow: 0 0 0 2px #ff1493, 0 8px 5px rgba(0,0,0,0.4); /* Outer border and shadow */
+      cursor: pointer;
+    }
+    .leaflet-popup-tip {
+      background: #ff1493;
+      width: 12px;
+      height: 12px;
+    }
+    img.avator {
+      height: 90px;
+      width: 90px
+    }
+
+    /* Basemap Tiles */
+    img.leaflet-tile {
+      transition-property: opacity, filter, -webkit-filter, -moz-filter !important;
+      transition-duration: 0.4s !important;
+    }
+
+    /* Modal */
+    #modal-wrapper {
+      display: none;
+      position: fixed;
+      bottom: 100px;
+      height: 100px;
+      width: 100%;
+    }
+    #modal {
+      margin: 0 auto;
+      padding: 20px 20px 40px 20px;
+      height: 100%;
+      width: 80%;
+      background: #fff;
+      border-radius: 10px;
+      text-align: center;
+      opacity: 0.8;
+    }
+    #modal > p {
+      font-size: 0.8em;
+    }
+    </style>
+  </head>
+
+  <body>
+    <div id="title"><p>21. Blurred Background</p></div>
+    <div id="map"></div>
+    <div id="modal-wrapper">
+      <div id="modal"></div>
+    </div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
+    <!-- Vector Icon -->
+    <script src="//muxlab.github.io/Leaflet.VectorIcon/L.VectorIcon.js"></script>
+
+    <!-- build:remove -->
+    <script src="21_blurred-background.js"></script>
+    <!-- /build -->
+<script>
+/* jsFile 21 */</script>
+  </body>
+</html>

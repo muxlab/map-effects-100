@@ -638,3 +638,8 @@ pictures.on('click', function (e) {
   }
 }
 ```
+* [21_blurred-background.html](http://muxlab.github.io/map-effects-100/Leaflet/21_blurred-background.html)
+```js
+$('img.leaflet-tile').css('filter', 'blur(10px)');
+$('img.leaflet-tile').css('-webkit-filter', 'blur(10px)');
+```
