@@ -14,6 +14,8 @@
 
 ```
 git clone https://github.com/muxlab/map-effects-100.git
+npm i
+npm start
 ```
 
 ## Index
@@ -42,6 +44,7 @@ git clone https://github.com/muxlab/map-effects-100.git
 * [Bouncing Popup](http://muxlab.github.io/map-effects-100/Leaflet/20_bouncing-popup.html)
 * [Blurred Background](http://muxlab.github.io/map-effects-100/Leaflet/21_blurred-background.html)
 * [Bootstrap Tooltip](http://muxlab.github.io/map-effects-100/Leaflet/22_bootstrap-tooltip.html)
+* [Vignetting Map](http://muxlab.github.io/map-effects-100/Leaflet/23_vignetting-map.html)
 
 Key code snipets of each file is [here](CODESNIPETS.md)!
 

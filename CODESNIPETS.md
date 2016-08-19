@@ -654,3 +654,19 @@ geojson.eachLayer(function (layer) {
   markerElm.tooltip({ title: layer.feature.properties['場所名'], container: 'body' });
 });
 ```
+* [23_vignetting-map.html](http://muxlab.github.io/map-effects-100/Leaflet/23_vignetting-map.html)
+```css
+#map {
+  background-color: #000;
+}
+#vignette {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  -moz-box-shadow: inset 0 0 10em 6em #000;
+  -webkit-box-shadow: inset 0 0 10em 6em #000;
+  box-shadow: inset 0 0 10em 6em #000;
+  content: "";
+  pointer-events: none;
+}
+```

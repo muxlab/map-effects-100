@@ -1,12 +1,13 @@
 {
   "name": "map-effects-100",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Cool tips to design UI/UX on Leaflet maps.",
   "main": "index.html",
   "scripts": {
     "lint": "gulp lint",
     "watch": "gulp watch",
-    "build": "gulp build"
+    "build": "gulp build",
+    "start": "http-server -p 5000 -c-1 -o"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "gulp-foreach": "^0.1.0",
     "gulp-plumber": "~1.0.1",
     "gulp-processhtml": "^1.1.0",
+    "http-server": "^0.9.0",
     "node-notifier": "~4.4.0",
     "vinyl": "^1.1.0"
   }
