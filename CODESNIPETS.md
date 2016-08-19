@@ -643,3 +643,14 @@ pictures.on('click', function (e) {
 $('img.leaflet-tile').css('filter', 'blur(10px)');
 $('img.leaflet-tile').css('-webkit-filter', 'blur(10px)');
 ```
+* [22_bootstrap-tooltip.html](http://muxlab.github.io/map-effects-100/Leaflet/22_bootstrap-tooltip.html)
+```js
+geojson.eachLayer(function (layer) {
+  var markerElm = $(layer._icon);
+  markerElm.attr({
+    'data-toggle': 'tooltip',
+    'data-placement': 'top'
+  });
+  markerElm.tooltip({ title: layer.feature.properties['場所名'], container: 'body' });
+});
+```

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Map Effects 100</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+    html, body, #map {
+      height: 100%;
+      font-family: "Avenir LT W01 35 Light", "Century Gothic", "Meiryo", Helvetica, Arial, sans-serif;
+    }
+    #title {
+      position: absolute;
+      z-index: 999;
+      top: 15px;
+      right: 45px;
+      color: #333;
+    }
+
+    .tooltip-inner {
+      font-family: "Avenir LT W01 35 Light", "Century Gothic", "Meiryo", Helvetica, Arial, sans-serif;
+      background-color: #646af5;
+      padding: 10px;
+    }
+    .tooltip.top .tooltip-arrow {
+      border-top-color: #646af5;
+    }
+
+    .leaflet-minimum-icon > svg > g > circle:hover {
+      stroke-width: 5;
+    }
+    </style>
+  </head>
+
+  <body>
+    <div id="title"><p>22. Bootstrap Tooltip</p></div>
+    <div id="map"></div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
+    <!-- Vector Icon -->
+    <script src="//muxlab.github.io/Leaflet.VectorIcon/L.VectorIcon.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- build:remove -->
+    <script src="22_bootstrap-tooltip.js"></script>
+    <!-- /build -->
+<script>
+/* jsFile 22 */</script>
+  </body>
+</html>

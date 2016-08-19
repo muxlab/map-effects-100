@@ -25,4 +25,4 @@
 * Run `gulp watch` from the command line. This will check your code into the `src` with [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
 * add you js file in gulp.js (section to automate with file name)
 * After finishing coding, run `gulp build`
-* Make your changes and create a [pull request](https://help.github.com/articles/creating-a-pull-request)
+* Make your changes **in its own topic branch** and create a [pull request](https://help.github.com/articles/creating-a-pull-request)

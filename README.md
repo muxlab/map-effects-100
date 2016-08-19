@@ -2,8 +2,6 @@
 
 [![Join the chat at https://gitter.im/muxlab/map-effects-100](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/muxlab/map-effects-100?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Bower version](https://badge.fury.io/bo/map-effects-100.svg)](http://badge.fury.io/bo/badges)
-
 <img src="MapEffects100.png" width="600px"/>
 
 [__Map Effects 100__](http://muxlab.github.io/map-effects-100/) has cool tips to design UI/UX on your Map.
@@ -15,7 +13,7 @@
 ### Quick Start
 
 ```
-bower install map-effects-100
+git clone https://github.com/muxlab/map-effects-100.git
 ```
 
 ## Index
@@ -43,6 +41,7 @@ bower install map-effects-100
 * [Transforming Marker into Picure Frame](http://muxlab.github.io/map-effects-100/Leaflet/19_transforming-marker-into-frame.html)
 * [Bouncing Popup](http://muxlab.github.io/map-effects-100/Leaflet/20_bouncing-popup.html)
 * [Blurred Background](http://muxlab.github.io/map-effects-100/Leaflet/21_blurred-background.html)
+* [Bootstrap Tooltip](http://muxlab.github.io/map-effects-100/Leaflet/22_bootstrap-tooltip.html)
 
 Key code snipets of each file is [here](CODESNIPETS.md)!
 
@@ -56,6 +55,7 @@ __Library__
 * [D3](http://d3js.org/)
 * [Chart.js](http://www.chartjs.org/)
 * [Turf](http://turfjs.org/)
+* [Bootstrap](http://getbootstrap.com)
 
 __CSS__
 * [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
@@ -70,6 +70,6 @@ You can join the project with the GitHub flow (Fork & Pull Request) in accordanc
 
 ## Licensing
 
-Copyright 2015 MUX Lab.
+Copyright 2016 MUX Lab.
 
 MIT.
