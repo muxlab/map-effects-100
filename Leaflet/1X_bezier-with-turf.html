@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Map Effects 100</title>
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="https://leaflet.github.io/Leaflet.draw/leaflet.draw.css" />
+
+    <style>
+        html, body, #map {
+          height: 600px;
+          font-family: "Avenir LT W01 35 Light", "Century Gothic", Helvetica, Arial, sans-serif;
+        }
+        #title {
+          position: absolute;
+          z-index: 999;
+          top: 15px;
+          right: 25px;
+          color: #fff;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div id="title"><p>1X. Bezier with Turf</p></div>
+    <div id="map"></div>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="https://leaflet.github.io/Leaflet.draw/leaflet.draw.js"></script>
+    <script src="http://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js"></script>
+    
+    <script>
+    $(function() {
+
+      console.log('%c⚛ Map Effects 100: Hello geohacker! ⚛', 'font-family:monospace;font-size:16px;color:darkblue;');
+      
+      var lineLayer;
+      var bezierLayer;
+      var hooked = {};
+
+      // Leaflet Map Init
+      function initMap() {
+        var map = L.map('map').setView([36, 139], 5);
+
+        L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',{
+          attributions: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+        }).addTo(map);
+ 
+        $.getJSON('../data/earthquakes.geojson', function(data) {
+          
+          var points = [];
+          for (var i = 0; i < data.features.length;  i+=150) {
+            var point = [data.features[i].geometry.coordinates[0], data.features[i].geometry.coordinates[1]];
+            points.push(point);
+          }
+
+          var lineStyle = {
+            color: '#25561F', 
+            weight: 5,
+          };
+          
+          var linestring = turf.linestring(points);
+          bezierLayer = L.geoJson().addTo(map);
+          lineLayer = L.geoJson().addTo(map);
+          lineLayer.addData(linestring);
+          lineLayer.setStyle(lineStyle); 
+          map.fitBounds(lineLayer.getBounds());
+
+          lineLayer.eachLayer(function(layer) {
+              layer.editing.enable();
+              updateBezierLayer(layer);
+              layer.on('edit', function(e) {
+                  updateBezierLayer(e.target);
+              });
+          });
+
+        });
+      }
+
+      function updateBezierLayer(layer) {
+        line = layer.toGeoJSON();
+        bezier = turf.bezier(line, 10000, 0.85);
+        bezierStyle = {
+            "color": "#6BC65F",
+            "width": 5
+        };
+        bezierLayer.addData(bezier);
+        bezierLayer.setStyle(bezierStyle);
+        addDragHooks();
+      }
+
+      function addDragHooks() {
+        lineLayer.eachLayer(function(layer) {
+          layer.editing._markers.forEach(function(marker){
+            if(!hooked[marker._index.toString()]) {
+              hooked[marker._index.toString()] = true;
+              marker.on('drag', function(e) {
+                updateBezierLayer(layer)
+              });
+            }
+          });
+        });
+      }
+
+      initMap();
+    
+    });
+    </script>
+  </body>
+</html>
